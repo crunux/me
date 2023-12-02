@@ -11,6 +11,7 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@nuxtjs/apollo": "^5.0.0-alpha.10",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
     "@nuxtjs/tailwindcss": "^6.9.4",

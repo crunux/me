@@ -1,4 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// const { hygraphToken } = useRuntimeConfig()
+
+// const cookie = useCookie('cross-hygraph')
+
+// cookie.value = cookie.value || hygraphToken
+</script>
 <template>
   <div>
     <NuxtLayout>
