@@ -77,6 +77,10 @@ const links = ref([
     page: "/projects",
   },
   {
+    name: "Blog",
+    page: "/blog",
+  },
+  {
     name: "Contact",
     page: "/contact",
   },
