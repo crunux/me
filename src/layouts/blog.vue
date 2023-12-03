@@ -25,5 +25,7 @@ const links = ref<Route[]>([
 </script>
 <template>
   <NavBar activeRoute :links="links" />
+  <slot />
+  <Footer/>
 </template>
 <style scoped></style>

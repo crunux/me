@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import type { Blog } from "~/types";
+import type { Posts } from "~/types";
 type Data = {
-  posts: Blog[];
+  posts: Posts[];
 };
+
+useHead({
+  title: "Blogs",
+});
 const query = gql`
   query getPosts {
     posts {
@@ -10,11 +14,10 @@ const query = gql`
       id
       slug
       tittle
-      content
       image {
         url(
           transformation: {
-            document: { output: { format: webp } }
+            document: { output: { format: svg } }
             image: { resize: { width: 300, height: 300 } }
           }
         )
@@ -23,13 +26,16 @@ const query = gql`
   }
 `;
 
-const { data, error, refresh } = await useAsyncQuery<Data>(query);
+const { clients, getToken, onLogin, onLogout } = useApollo();
+console.log(clients, getToken);
 
-console.log(data);
+const { data, error, refresh } = await useAsyncQuery<Data>(query);
 </script>
 <template>
-  <section class="flex flex-row">
-    <BlogCard v-for="blog in data.posts" :key="blog.id" :blog="blog" />
+  <section class="w-screen flex flex-col justify-center items-center">
+    <div class="w-full" v-for="post in data.posts" :key="post.id">
+      <PostCard :post="post" />
+    </div>
   </section>
 </template>
 <style scoped></style>
