@@ -15,13 +15,11 @@ useHead({
       >
         {{ $t("about.title") }}
       </h3>
-      <Transition class="animate__animated animate__backInRight" appear>
-        <img
-          class="w-[200px] h-[180px] table:hidden movil:inline rounded"
-          src="../assets/img/me.jpg"
-          alt=""
-        />
-      </Transition>
+      <img
+        class="w-[200px] h-[180px] table:hidden movil:inline rounded"
+        src="../assets/img/me.jpg"
+        alt=""
+      />
     </div>
     <div
       class="laptop:w-[65%] table:w-2/3 movil:w-3/4 movil:h-auto grid items-center movil:flex movil:flex-col movil:items-center movil:justify-center"
