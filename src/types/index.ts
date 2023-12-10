@@ -13,14 +13,14 @@ export interface Post {
     slug: string;
     image: Image;
     createdAt: string;
-    createBy: CreatedBy
+    createdBy: CreatedBy
 
 }
 
 interface Image {
     url: string;
 }
-interface CreatedBy {
+export interface CreatedBy {
     name: string;
     picture: string;
     id: string;
