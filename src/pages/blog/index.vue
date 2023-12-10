@@ -32,8 +32,12 @@ console.log(clients, getToken);
 const { data, error, refresh } = await useAsyncQuery<Data>(query);
 </script>
 <template>
-  <section class="w-screen flex flex-col justify-center items-center">
-    <div class="w-full" v-for="post in data.posts" :key="post.id">
+  <section class="w-[90%]">
+    <div
+      class="w-full flex flex-col justify-center items-center"
+      v-for="post in data.posts"
+      :key="post.id"
+    >
       <PostCard :post="post" />
     </div>
   </section>
