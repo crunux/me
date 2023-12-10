@@ -27,8 +27,13 @@ interface CreatedBy {
 }
 
 export interface Route {
-
     name: string;
     page: string,
 
+}
+
+export interface LinkSocial {
+    icon: string;
+    link: string;
+    name: string;
 }

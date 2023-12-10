@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Route } from "~/types";
+import type { LinkSocial } from "../types/index";
 interface Props {
   activeRoute?: boolean;
   links?: Route[];
@@ -13,7 +14,6 @@ interface Lang {
 defineProps<Props>();
 
 const { locale } = useI18n();
-const colorMode = useColorMode();
 
 const addSticky: Ref<string> = ref("");
 const { y } = useWindowScroll();
@@ -39,9 +39,23 @@ const toggleChangeLanguage = (laguage: string) => {
   menuLanguage.value = false;
 };
 
-const changeTheme = () => {
-  colorMode.preference = colorMode.value == "light" ? "dark" : "light";
-};
+const socialLinks: LinkSocial[] = [
+  {
+    name: "linkedin",
+    link: "www.linkedin.com/in/joancruz0502",
+    icon: "i-carbon-logo-linkedin",
+  },
+  {
+    name: "github",
+    link: "https://github.com/cr0s502",
+    icon: "i-carbon-logo-github",
+  },
+  {
+    name: "twitter",
+    link: "https://twitter.com/cr0s502",
+    icon: "i-carbon-logo-x",
+  },
+];
 </script>
 <template>
   <nav
@@ -69,26 +83,7 @@ const changeTheme = () => {
         >{{ link.name }}</NuxtLink
       >
     </div>
-    <ul class="w-[200px] flex justify-center items-center">
-      <li class="laptop:p-[8px] movil:p-[2px]">
-        <a class="" to="/"
-          ><IconsLinkedInLink
-            class="dark:text-[#d9d9d9] text-[#2d2e2e] laptop:w-[32px] movil:w-[25px]"
-        /></a>
-      </li>
-      <li class="p-[8px] movil:p-[2px]">
-        <a class="" to="/"
-          ><IconsGithubLink
-            class="dark:text-[#d9d9d9] text-[#2d2e2e] laptop:w-[32px] movil:w-[25px]"
-        /></a>
-      </li>
-      <li class="laptop:p-[8px] movil:p-[2px]">
-        <a class="" to="/"
-          ><IconsTwitterLink
-            class="dark:text-[#d9d9d9] text-[#2d2e2e] laptop:w-[32px] movil:w-[25px]"
-        /></a>
-      </li>
-    </ul>
+    <SocialLink :links="socialLinks" />
     <div
       class="laptop:w-[200px] table:w-[150px] movil:w-[200px] h-auto flex justify-center items-center text-center gap-1"
     >
@@ -105,8 +100,16 @@ const changeTheme = () => {
           class="dark:fill-[#d9d9d9] fill-[#2d2e2e] laptop:w-[32px] movil:w-[22px]"
         />
       </button>
-      <button
+      <div
         class="flex justify-center items-center laptop:w-[36px] laptop:h-[35px] movil:w-[32px] movil:h-[32px] z-[100] bg-transparent rounded-full border-[#2d2e2e] dark:border-[#d9d9d9] border"
+      >
+        <DarkSwitcher
+          class="dark:text-[#d9d9d9] text-[#2d2e2e] laptop:text-[32px] movil:text-[22px]"
+        />
+      </div>
+
+      <!-- <button 
+        class="flex justify-center items-center laptop:w-[36px] laptop:h-[35px] movil:w-[32px]  movil:h-[32px] z-[100] bg-transparent rounded-full border-[#2d2e2e] dark:border-[#d9d9d9] border"
         @click.prevent="changeTheme"
       >
         <IconsButtonLightMode
@@ -117,7 +120,7 @@ const changeTheme = () => {
           v-else
           class="text-[#2d2e2e] laptop:w-[32px] movil:w-[22px]"
         />
-      </button>
+      </button> -->
     </div>
     <div
       v-show="menuLanguage"
