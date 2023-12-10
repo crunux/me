@@ -44,26 +44,29 @@ const { data } = await useAsyncQuery<Data>(query, {
 </script>
 <template>
   <section
-    class="snap-center mt-[65px] w-[100vw] flex flex-col justify-center items-center"
+    class="snap-center mt-[65px] w-screen flex flex-col justify-center items-center"
   >
     <div
-      class="grid place-items-center h-auto rounded-[20px] w-[90%] bg-[#c5c5c5] dark:bg-[#2d2e2e]"
+      class="relative grid place-items-center h-auto rounded-[20px] w-[90%] bg-[#c5c5c5] dark:bg-[#2d2e2e]"
     >
+      <div class="grid h-auto place-items-center m-4">
+        <img class="rounded-[20px]" :src="data.post.image.url" alt="" />
+      </div>
       <h1
         class="font-ubuntu font-semibold m-3 p-3 text-4xl text-[#2d2e2e] dark:text-[#d9d9d9]"
       >
         {{ data.post.tittle }}
       </h1>
-      <div class="grid h-auto place-items-center">
-        <img class="rounded-[20px]" :src="data.post.image.url" alt="" />
-      </div>
-
-      <div>
-        <MarkdownStringRender
-          class="text-lg mt-3 text-[#2d2e2e] dark:text-[#d9d9d9]"
-          :markdownString="data.post.content"
-          :tag="data.post.id"
-        />
+      <MarkdownStringRender
+        class="text-lg text-center font-nunito w-[60%] mt-3 p-4 text-[#2d2e2e] dark:text-[#d9d9d9]"
+        :markdownString="data.post.content"
+        :tag="data.post.id"
+      />
+      <div
+        class="bottom-5 right-50 flex flex-col m-2 text-center text-[#2d2e2e] dark:text-[#d9d9d9]"
+      >
+        <h3 class="font-nunito font-semibold">Created By</h3>
+        <CreatedBy :createdBy="data.post.createdBy" />
       </div>
     </div>
   </section>

@@ -35,7 +35,7 @@ const socialLinks: LinkSocial[] = [
 </script>
 <template>
   <nav
-    class="flex fixed w-[100vw] h-[60px] top-0 left-0 z-[99] justify-between"
+    class="flex fixed w-screen h-[60px] top-0 left-0 z-[99] justify-between"
     :class="{
       sticky: addSticky,
     }"
