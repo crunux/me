@@ -10,4 +10,3 @@ const props = defineProps<Props>();
 <template>
   <div v-html="$mdRenderer.render(props.markdownString)"></div>
 </template>
-<style scoped></style>

@@ -24,6 +24,7 @@ const toggleChangeLanguage = (laguage: string) => {
 </script>
 <template>
   <button
+    name="language-switcher"
     @click="menuLanguage = !menuLanguage"
     class="flex justify-center laptop:w-[36px] laptop:h-[35px] movil:w-[32px] movil:h-[32px] bg-transparent rounded-full dark:text-[#d9d9d9] items-center text-[#2d2e2e] border-[#2d2e2e] dark:border-[#d9d9d9] border"
   >

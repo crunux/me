@@ -34,7 +34,7 @@ const { data, error, refresh } = await useAsyncQuery<Data>(query);
 <template>
   <section class="w-[90%]">
     <div
-      class="w-full flex flex-col justify-center items-center"
+      class="w-screen flex flex-col justify-center items-center"
       v-for="post in data.posts"
       :key="post.id"
     >
