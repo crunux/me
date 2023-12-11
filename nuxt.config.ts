@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/apollo', '@unocss/nuxt', 'nuxt-icon'],
+  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/apollo', '@unocss/nuxt', 'nuxt-icon', '@nuxt/image'],
   srcDir: 'src/',
   ssr: false,
   i18n: {
@@ -31,4 +31,5 @@ export default defineNuxtConfig({
       }
     },
   },
+  image: { dir: 'assets/images' },
 })
