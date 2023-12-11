@@ -1,23 +1,20 @@
-# Personal Portfolio with  Nuxt 3 + TailwindCSS + I18N + Animate.css
+# Personal Portfolio
 
+This is my new personal portfolio with new desing, technologies and feature, implement blogs page with hygraphql.
 
+Tech: Nuxt + UnoCSS + HygraphCMS
+
+***In Process**
+
+[Figma preview desing](https://www.figma.com/proto/Om2vbBeGzZqokXUODLfqJ7/Landing-Page---SPA?type=design&node-id=1-2&t=V8Q2jvprQqd1tDSl-0&scaling=min-zoom&page-id=0%3A1&starting-point-node-id=1%3A2&prev-org-id=external-teams)
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
 # yarn
 yarn install
-
-# bun
-bun install
 ```
 
 ## Development Server
@@ -25,17 +22,9 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
 # yarn
 yarn dev
 
-# bun
-bun run dev
 ```
 
 ## Production
@@ -43,33 +32,14 @@ bun run dev
 Build the application for production:
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
 # yarn
 yarn build
-
-# bun
-bun run build
 ```
 
 Locally preview production build:
 
 ```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
 # yarn
 yarn preview
 
-# bun
-bun run preview
 ```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
