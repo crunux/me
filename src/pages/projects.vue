@@ -35,11 +35,14 @@ const query = gql`
 `;
 
 const { data, error, refresh } = await useAsyncQuery<Projects>(query);
+watch(data, async () => {
+  await refresh();
+});
 console.log(data.value);
 </script>
 <template>
   <section
-    class="flex movil:flex-col table:flex-row justify-start items-center text-center mt-[20px] m-auto w-[90%] h-[500px] rounded-[20px] bg-[#c5c5c5] dark:bg-[#2d2e2e]"
+    class="snap-x flex movil:flex-col table:flex-row justify-center items-center text-center mt-[20px] m-auto w-[90%] overflow-hidden rounded-[20px] section-bg-color"
   >
     <CardProject
       v-for="project in data.projects"
