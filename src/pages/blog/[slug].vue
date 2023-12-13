@@ -5,7 +5,7 @@ type Data = {
 };
 const route = useRoute();
 const slug = route.params.slug;
-const mdcVars = ref({ name: "Maxime" });
+
 useHead({
   title: "Blog",
 });
