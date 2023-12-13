@@ -37,3 +37,17 @@ export interface LinkSocial {
     link: string;
     name: string;
 }
+
+interface Tech {
+    url: string
+}
+
+export interface Project {
+    id: string;
+    title: string;
+    description: string;
+    image: Image;
+    github: string;
+    preview: string;
+    techs: Tech[];
+}
