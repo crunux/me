@@ -41,14 +41,16 @@ watch(data, async () => {
 console.log(data.value);
 </script>
 <template>
-  <section
-    class="snap-x flex movil:flex-col table:flex-row justify-center items-center text-center mt-[20px] m-auto w-[90%] overflow-hidden rounded-[20px] section-bg-color"
+  <Swiper
+    :modules="[SwiperEffectCards]"
+    :space-between="15"
+    :slides-per-view="4"
+    :scrollbar="{ draggable: true }"
+    class="flex movil:flex-col table:flex-row justify-center items-center text-center mt-[20px] m-auto w-[90%] overflow-auto scrollbar:!h-1.5 scrollbar:!w-1.5 rounded-[20px] section-bg-color"
   >
-    <CardProject
-      v-for="project in data.projects"
-      :key="project.id"
-      :project="project"
-    />
-  </section>
+    <SwiperSlide v-for="project in data.projects" :key="project.id">
+      <CardProject :project="project" />
+    </SwiperSlide>
+  </Swiper>
 </template>
 <style scoped></style>

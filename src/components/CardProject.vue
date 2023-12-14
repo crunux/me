@@ -7,7 +7,7 @@ defineProps<Props>();
 </script>
 <template>
   <div
-    class="snap-center p-2 m-2 min-w-75 min-h-55 hover:max-h-150 flex flex-col justify-between hover:z-5 items-center rounded-[20px] card-bg-color group opacity-50 hover:opacity-100"
+    class="p-2 m-2 w-75 min-h-55 hover:max-h-150 flex flex-col justify-between hover:z-5 items-center rounded-[20px] card-bg-color group opacity-50 hover:opacity-100"
   >
     <div w-full>
       <h2 class="font-ubuntu font-semibold m-1 p-1 text-md text-color">
@@ -18,7 +18,7 @@ defineProps<Props>();
         :src="project.image.url"
         :placeholder="project.title"
       />
-      
+
       <MarkdownStringRender
         class="text-[15px] text-center font-nunito hidden group-hover:block text-color"
         :markdownString="project.description"
