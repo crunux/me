@@ -26,6 +26,7 @@
     "@nuxt/image": "npm:@nuxt/image-edge@latest",
     "@types/markdown-it": "^13.0.7",
     "@vueuse/nuxt": "^10.6.0",
-    "markdown-it": "^13.0.2"
+    "markdown-it": "^13.0.2",
+    "nuxt-swiper": "^1.2.2"
   }
 }
