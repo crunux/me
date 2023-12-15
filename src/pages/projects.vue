@@ -38,17 +38,18 @@ const { data, error, refresh } = await useAsyncQuery<Projects>(query);
 watch(data, async () => {
   await refresh();
 });
-console.log(data.value);
 </script>
 <template>
   <Swiper
-    :modules="[SwiperEffectFade]"
     :space-between="15"
     :slides-per-view="4"
-    :scrollbar="{ draggable: true }"
-    effect="fade"
+    :scrollbar="{
+      draggable: true,
+      enabled: true,
+    }"
+    :keyboard="{ enabled: true }"
     :grabCursor="true"
-    class="flex movil:flex-col table:flex-row overflow-auto m-auto justify-center items-center text-center mt-[20px] w-[90%] rounded-[20px] section-bg-color"
+    class="flex movil:flex-col scrollbar scrollbar-rounded scrollbar-track-color-[#dfdede] dark:scrollbar-track-color-[#4a4b4b] scrollbar-thumb-color-[#4a4b4b] dark:scrollbar-thumb-color-[#dfdede] table:flex-row overflow-auto m-auto justify-center items-center text-center mt-[20px] w-[90%] rounded-[20px] section-bg-color"
   >
     <SwiperSlide v-for="project in data.projects" :key="project.id">
       <CardProject :project="project" />
