@@ -42,11 +42,13 @@ console.log(data.value);
 </script>
 <template>
   <Swiper
-    :modules="[SwiperEffectCards]"
+    :modules="[SwiperEffectFade]"
     :space-between="15"
     :slides-per-view="4"
     :scrollbar="{ draggable: true }"
-    class="flex movil:flex-col table:flex-row justify-center items-center text-center mt-[20px] m-auto w-[90%] overflow-auto scrollbar:!h-1.5 scrollbar:!w-1.5 rounded-[20px] section-bg-color"
+    effect="fade"
+    :grabCursor="true"
+    class="flex movil:flex-col table:flex-row overflow-auto m-auto justify-center items-center text-center mt-[20px] w-[90%] rounded-[20px] section-bg-color"
   >
     <SwiperSlide v-for="project in data.projects" :key="project.id">
       <CardProject :project="project" />
