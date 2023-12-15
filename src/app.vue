@@ -8,7 +8,7 @@
 <template>
   <div>
     <NuxtLayout>
-      <NuxtPage class="snap-mandatory snap-y" />
+      <NuxtPage />
     </NuxtLayout>
   </div>
 </template>
