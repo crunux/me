@@ -14,5 +14,6 @@ export default defineConfig({
         'borde-color': 'border-[#2d2e2e] dark:border-[#d9d9d9]',
         'card-bg-color': 'bg-[#dfdede] dark:bg-[#4a4b4b]',
         'section-bg-color': 'bg-[#c5c5c5] dark:bg-[#2d2e2e]',
+        'scrollbar-base': 'scrollbar scrollbar-rounded scrollbar-track-color-[#dfdede] dark:scrollbar-track-color-[#4a4b4b] scrollbar-thumb-color-[#4a4b4b] dark:scrollbar-thumb-color-[#dfdede]'
     },
 })
