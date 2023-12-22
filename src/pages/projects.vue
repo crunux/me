@@ -13,15 +13,15 @@ const perViews = reactive({
     slidesPerView: 1,
     spaceBetween: 10,
   },
-  779: {
+  640: {
     slidesPerView: 2,
-    spaceBetween: 5,
-  },
-  1227: {
-    slidesPerView: 3,
     spaceBetween: 20,
   },
-  1595: {
+  1024: {
+    slidesPerView: 3,
+    spaceBetween: 40,
+  },
+  1399: {
     slidesPerView: 4,
     spaceBetween: 40,
   },
@@ -64,22 +64,28 @@ watch(data, async () => {
 </script>
 <template>
   <Swiper
+    class="py-2 max-w-[90%] rounded-[20px] section-bg-color"
+    :modules="[SwiperPagination]"
     :breakpoints="perViews"
     :scrollbar="{
       draggable: true,
-      enabled: true,
     }"
+    :pagination="{ el: '.swiper-pagination', clickable: true }"
     :keyboard="{ enabled: true }"
     :grabCursor="true"
-    class="flex scrollbar scrollbar-rounded scrollbar-track-color-[#dfdede] dark:scrollbar-track-color-[#4a4b4b] scrollbar-thumb-color-[#4a4b4b] dark:scrollbar-thumb-color-[#dfdede] overflow-auto m-auto justify-center items-center text-center mt-[20px] max-w-[90%] rounded-[20px] section-bg-color"
   >
     <SwiperSlide
-      class="movil:px-3 table:px-3"
+      class="movil:px-3 table:px-3 flex justify-center items-center"
       v-for="project in data.projects"
       :key="project.id"
     >
       <CardProject :project="project" />
     </SwiperSlide>
+    <div class="swiper-pagination"></div>
   </Swiper>
 </template>
-<style scoped></style>
+<style scoped>
+.swiper-pagination {
+  color: #08b4ea;
+}
+</style>
