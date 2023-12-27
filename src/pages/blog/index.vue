@@ -18,7 +18,7 @@ const query = gql`
         url(
           transformation: {
             document: { output: { format: svg } }
-            image: { resize: { width: 300, height: 300 } }
+            image: { resize: { width: 350, height: 300, fit: crop } }
           }
         )
       }
