@@ -11,6 +11,7 @@ const props = defineProps<Props>();
   <NuxtLink
     class="cursor-pointer m-5 laptop:w-[60%] movil:w-[90%] rounded-[20px] bg-[#c5c5c5] dark:bg-[#2d2e2e]"
     :to="`/blog/${props.post.slug}`"
+    :name="`blog-${props.post.id}`"
   >
     <div class="flex flex-row justify-between items-center w-[80%]">
       <div class="w-auto p-1 m-1">

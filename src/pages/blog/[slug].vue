@@ -53,12 +53,12 @@ const { data } = await useAsyncQuery<Data>(query, {
         <img class="rounded-[20px]" :src="data.post.image.url" alt="" />
       </div>
       <h1
-        class="font-ubuntu font-semibold m-3 p-3 text-4xl text-[#2d2e2e] dark:text-[#d9d9d9]"
+        class="font-ubuntu font-semibold m-3 p-3 text-center text-4xl text-[#2d2e2e] dark:text-[#d9d9d9]"
       >
         {{ data.post.tittle }}
       </h1>
       <MarkdownStringRender
-        class="text-lg text-center font-nunito w-[60%] mt-3 p-4 text-[#2d2e2e] dark:text-[#d9d9d9]"
+        class="laptop:text-xl movil:text-sm table:text-lg text-start font-nunito w-[60%] mt-3 p-4 text-[#2d2e2e] dark:text-[#d9d9d9]"
         :markdownString="data.post.content"
         :tag="data.post.id"
       />
