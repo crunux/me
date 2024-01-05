@@ -6,7 +6,7 @@ interface Props {
   links?: Route[];
 }
 
-defineProps<Props>();
+const { links, activeRoute } = defineProps<Props>();
 
 const addSticky: Ref<string> = ref("");
 const { y } = useWindowScroll();
@@ -49,7 +49,35 @@ const socialLinks: LinkSocial[] = [
     </div>
     <div
       v-if="activeRoute"
-      class="w-[450px] m-2 ml-8 flex flex-row laptop:items-start movil:items-center gap-[2px]"
+      :class="activeRoute ? 'movil:flex laptop:hidden' : ''"
+      class="justify-center items-center m-2"
+    >
+      <MenuToggle>
+        <template #socialLinks>
+          <SocialLink :links="socialLinks" />
+        </template>
+        <template #darkMode>
+          <div
+            class="laptop:w-[200px] table:w-[150px] flex movil:w-auto movil:m-2 h-auto justify-center items-center text-center gap-1"
+          >
+            <DarkSwitcher />
+          </div>
+        </template>
+        <template #links>
+          <NuxtLink
+            class="cursor-pointer dark:text-[#d9d9d9] link font-ubuntu movil:text-center font-semibold text-[#2d2e2e] p-[10px] m-[2px]"
+            v-for="link in links"
+            :key="link.name"
+            :to="link.page"
+          >
+            {{ link.name }}
+          </NuxtLink>
+        </template>
+      </MenuToggle>
+    </div>
+    <div
+      v-if="activeRoute"
+      class="w-[450px] m-2 ml-8 movil:hidden laptop:flex flex-row laptop:items-start movil:items-center gap-[2px]"
     >
       <NuxtLink
         class="cursor-pointer dark:text-[#d9d9d9] link font-ubuntu movil:text-center font-semibold text-[#2d2e2e] p-[10px] m-[2px]"
@@ -59,12 +87,23 @@ const socialLinks: LinkSocial[] = [
         >{{ link.name }}</NuxtLink
       >
     </div>
-    <SocialLink :links="socialLinks" />
     <div
-      class="laptop:w-[200px] table:w-[150px] movil:w-[200px] h-auto flex justify-center items-center text-center gap-1"
+      :class="
+        activeRoute ? 'movil:hidden laptop:flex' : !activeRoute ? 'flex' : ''
+      "
+      class="justify-center items-center"
+    >
+      <SocialLink :links="socialLinks" />
+    </div>
+
+    <div
+      class="laptop:w-[200px] table:w-[150px] movil:w-auto movil:m-2 h-auto justify-center items-center text-center gap-1"
+      :class="
+        activeRoute ? 'movil:hidden laptop:flex' : !activeRoute ? 'flex' : ''
+      "
     >
       <LanguageSwitcher />
-      <DarkSwitcher/>
+      <DarkSwitcher />
     </div>
   </nav>
 </template>
