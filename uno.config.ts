@@ -1,5 +1,4 @@
 import { defineConfig, presetUno, presetAttributify, presetIcons, presetTypography } from 'unocss';
-import { presetScrollbar } from 'unocss-preset-scrollbar'
 
 export default defineConfig({
     presets: [
@@ -7,7 +6,6 @@ export default defineConfig({
         presetAttributify(),
         presetIcons(),
         presetTypography(),
-        presetScrollbar(),
     ],
     shortcuts: {
         'text-color': 'text-[#2d2e2e] dark:text-[#d9d9d9]',
