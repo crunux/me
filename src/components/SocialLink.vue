@@ -7,7 +7,7 @@ interface Props {
 const { links } = defineProps<Props>();
 </script>
 <template>
-  <ul class="movil:w-[300px] laptop:w-auto flex justify-center items-center">
+  <ul class="movil:max-w-[300px] laptop:w-auto flex justify-center items-center">
     <li
       v-for="social of links"
       :key="social.name"

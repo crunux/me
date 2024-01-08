@@ -89,7 +89,7 @@ const socialLinks: LinkSocial[] = [
     </div>
     <div
       :class="
-        activeRoute ? 'movil:hidden laptop:flex' : !activeRoute ? 'flex' : ''
+        !activeRoute ? 'flex': 'movil:hidden laptop:flex'
       "
       class="justify-center items-center"
     >
