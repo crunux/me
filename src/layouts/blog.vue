@@ -1,5 +1,18 @@
 <script setup lang="ts">
 import type { Route } from "~/types";
+useHead({
+  titleTemplate: "%s - Crunux",
+  htmlAttrs: {
+    lang: "en",
+  },
+  link: [
+    {
+      rel: "icon",
+      type: "image/ico",
+      href: "/favicon.ico",
+    },
+  ],
+});
 const links = ref<Route[]>([
   {
     name: "Home",

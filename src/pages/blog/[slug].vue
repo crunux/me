@@ -1,18 +1,13 @@
 <script setup lang="ts">
 import type { Post } from "~/types";
+definePageMeta({
+  layout: "blog",
+});
 type Data = {
   post: Post;
 };
 const route = useRoute();
 const slug = route.params.slug;
-
-useHead({
-  title: "Blog",
-});
-
-definePageMeta({
-  layout: "blog",
-});
 
 const query = gql`
   query getPost($slug: String!) {
@@ -40,6 +35,14 @@ const query = gql`
 
 const { data } = await useAsyncQuery<Data>(query, {
   slug: slug,
+});
+
+useSeoMeta({
+  title: data.value.post.tittle,
+  ogTitle: data.value.post.tittle,
+  description: data.value.post.tittle,
+  ogDescription: data.value.post.slug,
+  ogImage: data.value.post.image,
 });
 </script>
 <template>
