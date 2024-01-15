@@ -13,7 +13,7 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <div flex="~ col" text-color>
+  <div flex="~ col">
     <label
       v-if="label || !placeholder"
       for="name"
@@ -24,6 +24,8 @@ withDefaults(defineProps<Props>(), {
       {{ label }}
     </label>
     <textarea
+      text-black
+      bg-gray200
       v-model="input"
       border="rounded-md"
       :name="name"

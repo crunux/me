@@ -25,6 +25,8 @@ withDefaults(defineProps<Props>(), {
       {{ label }}
     </label>
     <input
+    text-black
+      bg-gray200
       h-8
       border="rounded-md"
       ring-none
@@ -38,4 +40,4 @@ withDefaults(defineProps<Props>(), {
     />
   </div>
 </template>
-<style scoped></style>
+

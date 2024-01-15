@@ -1,4 +1,13 @@
 <script setup lang="ts">
+// import { z } from "zod";
+
+// const schemaField = toTypedSchema(
+//   z.object({
+//     email: z.string().email("Must be a valid email"),
+//     name: z.string().min(3, { message: "fullname please" }),
+//   })
+// );
+
 const form = reactive({
   name: "",
   email: "",
@@ -35,7 +44,6 @@ const sendEmail = () => {
         text-9xl
       ></div>
       <form
-        action=""
         @submit.prevent="sendEmail"
         flex="~ col"
         justify-center
@@ -44,11 +52,14 @@ const sendEmail = () => {
         class="movil:w-full laptop:w-[45%]"
         m1
       >
-        <div ref="el" class="flex movil:flex-col movil:justify-center laptop:flex-row laptop:justify-initial gap2">
+        <div
+          ref="el"
+          class="flex movil:flex-col movil:justify-center laptop:flex-row laptop:justify-initial gap2"
+        >
           <FieldForm
             v-model="form.name"
             max-w-60
-            label="Nombre:"
+            label="FullName:"
             type="text"
             name="name"
           />
