@@ -16,7 +16,8 @@
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
     "@nuxtjs/tailwindcss": "^6.9.4",
-    "@unocss/nuxt": "^0.58.0",
+    "@types/nodemailer": "^6.4.14",
+    "@unocss/nuxt": "^0.57.0",
     "nuxt": "^3.9.0",
     "nuxt-icon": "^0.6.7",
     "vue": "^3.3.8",
@@ -25,8 +26,12 @@
   "dependencies": {
     "@nuxt/image": "npm:@nuxt/image-edge@latest",
     "@types/markdown-it": "^13.0.7",
+    "@vee-validate/nuxt": "^4.12.4",
+    "@vee-validate/zod": "^4.12.4",
     "@vueuse/nuxt": "^10.6.0",
     "markdown-it": "^13.0.2",
-    "nuxt-swiper": "^1.2.2"
+    "nodemailer": "^6.9.8",
+    "nuxt-swiper": "^1.2.2",
+    "zod": "^3.22.4"
   }
 }
