@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/apollo', '@unocss/nuxt', 'nuxt-icon', '@nuxt/image', 'nuxt-swiper'],
+  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/apollo', '@unocss/nuxt', 'nuxt-icon', '@nuxt/image', 'nuxt-swiper','@vee-validate/nuxt'],
   srcDir: 'src/',
   ssr: false,
   i18n: {
@@ -19,6 +19,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     hygraphToken: process.env.HYGRAPH_TOKEN,
     hygraphApi: process.env.HYGRAPH_API,
+    mailService: process.env.MAIL_SERVICE || "",
+    mailEmail: process.env.MAIL_EMAIL || "",
+    MailSecretKey: process.env.MAIL_SECRET_KEY || "",
   },
   apollo: {
     clients: {
@@ -32,4 +35,14 @@ export default defineNuxtConfig({
     },
   },
   image: { dir: 'assets/images' },
+  // veeValidate: {
+  //   // disable or enable auto imports
+  //   autoImports: true,
+  //   // Use different names for components
+  //   componentNames: {
+  //     Form: 'VeeForm',
+  //     Field: 'VeeField',
+  //     ErrorMessage: 'VeeErrorMessage',
+  //   },
+  // },
 })
