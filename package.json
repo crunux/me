@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.25",
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^1.0.8",
     "@nuxtjs/apollo": "^5.0.0-alpha.10",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
@@ -28,7 +28,7 @@
     "@types/markdown-it": "^13.0.7",
     "@vee-validate/nuxt": "^4.12.4",
     "@vee-validate/zod": "^4.12.4",
-    "@vueuse/nuxt": "^10.6.0",
+    "@vueuse/nuxt": "^10.5.0",
     "markdown-it": "^13.0.2",
     "nodemailer": "^6.9.8",
     "nuxt-swiper": "^1.2.2",

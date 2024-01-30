@@ -1,6 +1,6 @@
 FROM node:18 as Builder
 
-RUN corepack enable && corepack prepare pnpm@latest
+RUN corepack enable && corepack prepare pnpm@latest --activate
 ENV PNPM_HOME=/usr/local/bin
 
 WORKDIR /usr/src/app
