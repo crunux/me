@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Project } from "@/types";
+import "swiper/css";
+import "swiper/css/pagination";
+
 useHead({
   title: "Projects",
 });
