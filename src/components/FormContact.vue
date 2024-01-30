@@ -31,7 +31,7 @@ const sendEmail = () => {
     text-color
     p2
   >
-    <h2 font-bold class="font-ubuntu movil:mt-2 movil:text-3xl laptop:text-5xl">
+    <h2 font-bold mb3 class="font-ubuntu movil:mt-2 movil:text-3xl laptop:text-5xl">
       Contact me
     </h2>
     <div flex w-full justify-between items-center>

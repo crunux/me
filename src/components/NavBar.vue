@@ -8,7 +8,7 @@ interface Props {
 
 const { links, activeRoute } = defineProps<Props>();
 
-const addSticky: Ref<string> = ref("");
+const addSticky = ref("");
 const { y } = useWindowScroll();
 
 watch(y, (newValue: number) => {
@@ -88,9 +88,7 @@ const socialLinks: LinkSocial[] = [
       >
     </div>
     <div
-      :class="
-        !activeRoute ? 'flex': 'movil:hidden laptop:flex'
-      "
+      :class="!activeRoute ? 'flex' : 'movil:hidden laptop:flex'"
       class="justify-center items-center"
     >
       <SocialLink :links="socialLinks" />
