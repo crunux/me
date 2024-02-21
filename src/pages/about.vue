@@ -15,10 +15,11 @@ useHead({
       >
         {{ $t("about.title") }}
       </h3>
-      <img
+      <nuxt-img
         class="w-[200px] h-[180px] table:hidden movil:inline rounded"
-        src="../assets/img/me.jpg"
-        alt=""
+        format="webp"
+        src="../assets/images/me.jpg"
+        alt="Joan Cruz"
       />
     </div>
     <div

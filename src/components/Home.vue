@@ -50,7 +50,7 @@ defineProps<Props>();
         <nuxt-img
           class="laptop:w-[400px] table:w-[400px] movil:hidden table:block laptop:block rounded-[20px]"
           format="webp"
-          src="/me.jpg"
+          src="../assets/images/me.jpg"
           alt="Joan Cruz"
         />
       </div>
