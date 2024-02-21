@@ -31,5 +31,8 @@
     "markdown-it": "^13.0.2",
     "nuxt-swiper": "^1.2.2",
     "zod": "^3.22.4"
+  },
+  "resolutions": {
+    "string-width": "4.2.3"
   }
 }
