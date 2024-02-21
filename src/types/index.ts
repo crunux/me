@@ -52,7 +52,7 @@ export interface Project {
     techs: Tech[];
 }
 export interface SendEmailService {
-    to: string;
+    from: string;
     subject: string;
-    html: string;
+    body: string;
 }

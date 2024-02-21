@@ -1,15 +1,13 @@
+// import type { SendEmailService } from "~/types";
+// import { SecureToken, Subject, ToSend } from "~/shared/helpers/config";
+// import Email from '@/assets/smtpJs/index.js'
 
-export interface SendEmailService {
-    to: string;
-    subject: string;
-    html: string;
-}
+const config = useRuntimeConfig()
 
-const { $emailService } = useNuxtApp()
+config.SecureToken, config.ToSend, config.Subject
 
-
-export const sendEmailService = async (object: SendEmailService) => {
-    const res = await $emailService.sendMail({ to: object.to, subject: object.subject, html: object.html })
-    console.log(res);
-    
-}
+// export const sendEmailService = async (email: SendEmailService) => {
+//     const Body = ``
+//     const res = await Email.send({ SecureToken, Subject, To: ToSend, From: email.from, Body })
+//     console.log(res);
+// }

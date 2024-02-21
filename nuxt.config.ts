@@ -22,9 +22,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     hygraphToken: process.env.HYGRAPH_TOKEN,
     hygraphApi: process.env.HYGRAPH_API,
-    mailService: process.env.MAIL_SERVICE || "",
-    mailEmail: process.env.MAIL_EMAIL || "",
-    MailSecretKey: process.env.MAIL_SECRET_KEY || "",
+    SecureToken: process.env.SECURETOKENMAIL || "",
+    ToSend: process.env.TOSENDEMAIL|| "",
   },
   apollo: {
     clients: {
