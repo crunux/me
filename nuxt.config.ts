@@ -36,7 +36,9 @@ export default defineNuxtConfig({
       }
     },
   },
-
+  image: {
+    provider: 'netlify',
+  }
   // veeValidate: {
   //   // disable or enable auto imports
   //   autoImports: true,
