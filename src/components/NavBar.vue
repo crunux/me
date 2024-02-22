@@ -23,12 +23,12 @@ const socialLinks: LinkSocial[] = [
   },
   {
     name: "github",
-    link: "https://github.com/cr0s502",
+    link: "https://github.com/crunux",
     icon: "i-carbon-logo-github",
   },
   {
     name: "twitter",
-    link: "https://twitter.com/cr0s502",
+    link: "https://twitter.com/crunux0",
     icon: "i-carbon-logo-x",
   },
 ];
@@ -37,7 +37,7 @@ const socialLinks: LinkSocial[] = [
   <nav
     class="flex fixed w-screen h-[60px] top-0 left-0 z-[99] justify-between"
     :class="{
-      sticky: addSticky,
+      colorNavbar: addSticky,
     }"
   >
     <div class="top-[15px] laptop:left-[20px] m-[10px] pl-1">
@@ -106,10 +106,10 @@ const socialLinks: LinkSocial[] = [
   </nav>
 </template>
 <style scoped>
-.sticky {
+.colorNavbar {
   background: #cbcccc;
 }
-.dark .sticky {
+.dark .colorNavbar {
   background: #242525;
 }
 </style>
