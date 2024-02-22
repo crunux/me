@@ -36,7 +36,7 @@ export default defineNuxtConfig({
       }
     },
   },
-  image: { dir: 'assets/images' },
+
   // veeValidate: {
   //   // disable or enable auto imports
   //   autoImports: true,
