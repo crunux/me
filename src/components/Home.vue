@@ -51,6 +51,7 @@ defineProps<Props>();
           class="laptop:w-[400px] table:w-[400px] movil:hidden table:block laptop:block rounded-[20px]"
           format="webp"
           src="../assets/images/me.jpg"
+          loading="lazy"
           alt="Joan Cruz"
         />
       </div>

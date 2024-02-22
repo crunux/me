@@ -19,6 +19,7 @@ useHead({
         class="w-[200px] h-[180px] table:hidden movil:inline rounded"
         format="webp"
         src="../assets/images/me.jpg"
+        loading="lazy"
         alt="Joan Cruz"
       />
     </div>

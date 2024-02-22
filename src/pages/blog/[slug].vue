@@ -53,7 +53,7 @@ useSeoMeta({
       class="relative grid place-items-center h-auto rounded-[20px] w-[90%] bg-[#c5c5c5] dark:bg-[#2d2e2e]"
     >
       <div class="grid h-auto place-items-center m-4">
-        <img class="rounded-[20px]" :src="data.post.image.url" alt="" />
+        <img class="rounded-[20px]" :src="data.post.image.url" :alt="data.post.tittle" />
       </div>
       <h1
         class="font-ubuntu font-semibold m-3 p-3 text-center text-4xl text-[#2d2e2e] dark:text-[#d9d9d9]"
