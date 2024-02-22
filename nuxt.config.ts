@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     hygraphToken: process.env.HYGRAPH_TOKEN,
     hygraphApi: process.env.HYGRAPH_API,
     SecureToken: process.env.SECURETOKENMAIL || "",
-    ToSend: process.env.TOSENDEMAIL|| "",
+    ToSend: process.env.TOSENDEMAIL || "",
   },
   apollo: {
     clients: {
@@ -37,7 +37,8 @@ export default defineNuxtConfig({
     },
   },
   image: {
-    provider: 'netlify',
+    format: ['webp'],
+    domains: ['crunux.me']
   }
   // veeValidate: {
   //   // disable or enable auto imports

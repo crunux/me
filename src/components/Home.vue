@@ -47,10 +47,9 @@ defineProps<Props>();
       </div>
 
       <div class="w-[45%] flex justify-center items-center">
-        <nuxt-img
+        <img
           class="laptop:w-[400px] table:w-[400px] movil:hidden table:block laptop:block rounded-[20px]"
-          format="webp"
-          src="me.jpg"
+          src="../assets/img/me.jpg"
           loading="lazy"
           alt="Joan Cruz"
         />

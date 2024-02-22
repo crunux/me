@@ -15,10 +15,9 @@ useHead({
       >
         {{ $t("about.title") }}
       </h3>
-      <nuxt-img
+      <img
         class="w-[200px] h-[180px] table:hidden movil:inline rounded"
-        format="webp"
-        src="me.jpg"
+        src="../assets/img/me.jpg"
         loading="lazy"
         alt="Joan Cruz"
       />
