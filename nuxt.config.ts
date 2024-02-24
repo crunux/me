@@ -38,8 +38,9 @@ export default defineNuxtConfig({
   },
   image: {
     format: ['webp'],
-    domains: ['crunux.me']
-  }
+    domains: ['crunux.me'],
+    dir: 'assets/images'
+  },
   // veeValidate: {
   //   // disable or enable auto imports
   //   autoImports: true,
