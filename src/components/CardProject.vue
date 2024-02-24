@@ -13,7 +13,7 @@ defineProps<Props>();
       <h2 class="font-ubuntu font-semibold m-1 p-1 text-md text-color">
         {{ project.title }}
       </h2>
-      <nuxt-img
+      <img
         class="rounded-[10px] w-72"
         :src="project.image.url"
         :placeholder="project.title"
@@ -44,7 +44,7 @@ defineProps<Props>();
       <div
         class="group-hover:flex hidden p-1 justify-center items-center bottom-0 border rounded-xl w-full borde-color"
       >
-        <nuxt-img
+        <img
           class="w-10 h-10 rounded-full"
           v-for="(tech, index) in project.techs"
           :key="index"
