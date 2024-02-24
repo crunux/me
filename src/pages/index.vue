@@ -2,11 +2,6 @@
 useHead({
   title: "Home",
 });
-
 </script>
-<template>
-  
-</template>
-<style scoped>
-
-</style>
+<template></template>
+<style scoped></style>

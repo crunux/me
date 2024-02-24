@@ -24,12 +24,12 @@ const links = ref<Route[]>([
 ]);
 
 useSeoMeta({
-  description: "Porfotio of Joan Cruz",
-  ogTitle: "Crunux",
-  ogDescription: "CV Crunux",
+  description: "Porfolio of Joan Cruz",
+  ogTitle: "Joan Cruz - Crunux",
+  ogDescription: "CV Joan Cruz Fullstack Developer",
   ogImage:
     "https://pbs.twimg.com/profile_images/1421116782069403649/9TRcKV2t_400x400.jpg",
-  ogUrl: "crunux.dev",
+  ogUrl: "crunux.me",
   twitterTitle: "Cross Dev",
   twitterDescription: "Fullstack Developer",
   twitterImage:
@@ -46,7 +46,7 @@ useHead({
     {
       rel: "icon",
       type: "image/ico",
-      href: "favicon.ico",
+      href: "../assets/img/ico.svg",
     },
   ],
 });

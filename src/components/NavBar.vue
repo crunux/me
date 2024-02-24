@@ -44,7 +44,7 @@ const socialLinks: LinkSocial[] = [
       <NuxtLink
         class="text-4xl laptop:text-center font-ubuntu text-[#2d2e2e] dark:text-[#d9d9d9] font-semibold"
         to="/"
-        ><span class="text-[#08B4EA]">Cru</span>nux</NuxtLink
+        ><span class="text-[#40CEF7]">Cru</span>nux</NuxtLink
       >
     </div>
     <div
@@ -100,8 +100,8 @@ const socialLinks: LinkSocial[] = [
         activeRoute ? 'movil:hidden laptop:flex' : !activeRoute ? 'flex' : ''
       "
     >
-      <LanguageSwitcher />
-      <DarkSwitcher />
+      <LanguageSwitcher aria-labelledby="changeLanguage"/>
+      <DarkSwitcher aria-labelledby="changeThemeMode"/>
     </div>
   </nav>
 </template>

@@ -15,7 +15,7 @@ defineProps<Props>();
       <div class="w-[45%] m-5 top-8 flex flex-col justify-center items-center">
         <div class="bottom-[10px]">
           <h6
-            class="text-[#08B4EA] bottom-0 laptop:text-end movil:text-center text-[25px] p-0 m-0 leading-none"
+            class="text-[#40CEF7] bottom-0 laptop:text-end movil:text-center text-[25px] p-0 m-0 leading-none"
           >
             {{ $t("home.greet") }}
           </h6>
@@ -37,7 +37,7 @@ defineProps<Props>();
           class="w-[450px] m-[25px] flex flex-col laptop:items-start movil:items-center gap-[2px]"
         >
           <NuxtLink
-            class="cursor-pointer dark:text-[#d9d9d9] link font-ubuntu movil:text-center font-semibold text-[#2d2e2e] p-[10px] m-[2px]"
+            class="cursor-pointer dark:text-[#fcfcfc] link font-ubuntu movil:text-center font-semibold text-[#2d2e2e] p-[10px] m-[2px]"
             v-for="link in links"
             :key="link.name"
             :to="link.page"
@@ -60,7 +60,7 @@ defineProps<Props>();
 <style scoped>
 .link.router-link-exact-active {
   border-radius: 20px;
-  background: #08b4ea;
+  background: #40CEF7;
   text-align: center;
   /**/
 }
