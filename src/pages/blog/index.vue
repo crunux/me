@@ -27,7 +27,6 @@ const query = gql`
 `;
 
 const { clients, getToken, onLogin, onLogout } = useApollo();
-console.log(clients, getToken);
 
 const { data, error, refresh } = await useAsyncQuery<Data>(query);
 </script>

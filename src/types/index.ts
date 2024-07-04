@@ -51,8 +51,9 @@ export interface Project {
     preview: string;
     techs: Tech[];
 }
-export interface SendEmailService {
-    from: string;
-    subject: string;
-    body: string;
+export interface SendEmail {
+    name: string;
+    lastname: string;
+    email: string;
+    message: string;
 }
