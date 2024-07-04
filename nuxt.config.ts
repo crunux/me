@@ -4,27 +4,35 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxtjs/apollo', '@unocss/nuxt', 'nuxt-icon', '@nuxt/image', 'nuxt-swiper', '@vee-validate/nuxt'],
   srcDir: 'src/',
   ssr: false,
+
   i18n: {
     vueI18n: './i18n.config.ts'
   },
+
   features: {
     inlineStyles: false,
   },
+
   css: ['~/assets/css/main.css'],
+
   colorMode: {
     classSuffix: '',
     preference: 'system',
     fallback: 'dark'
   },
+
   experimental: {
     viewTransition: true
   },
+
   runtimeConfig: {
     hygraphToken: process.env.HYGRAPH_TOKEN,
     hygraphApi: process.env.HYGRAPH_API,
-    SecureToken: process.env.SECURETOKENMAIL || "",
-    ToSend: process.env.TOSENDEMAIL || "",
+    SERVICES_ID: process.env.SERVICES_ID || "",
+    TEMPLATE_ID: process.env.TEMPLATE_ID || "",
+    USER_ID: process.env.PUBLIC_KEY || "",
   },
+
   apollo: {
     clients: {
       default: {
@@ -36,11 +44,7 @@ export default defineNuxtConfig({
       }
     },
   },
-  image: {
-    format: ['webp'],
-    domains: ['crunux.me'],
-    dir: 'assets/images'
-  },
+
   // veeValidate: {
   //   // disable or enable auto imports
   //   autoImports: true,
@@ -51,4 +55,11 @@ export default defineNuxtConfig({
   //     ErrorMessage: 'VeeErrorMessage',
   //   },
   // },
+  image: {
+    format: ['webp'],
+    domains: ['crunux.me'],
+    dir: 'assets/images'
+  },
+
+  compatibilityDate: '2024-07-03',
 })
