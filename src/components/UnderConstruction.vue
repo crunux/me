@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const value = defineModel({ type: Boolean, default: true });
+const value = defineModel({ type: Boolean, default: false });
 </script>
 <template>
   <div flex
