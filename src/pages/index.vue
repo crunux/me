@@ -1,7 +1,6 @@
 <script setup lang="ts">
-useHead({
+useSeoMeta({
   title: "Home",
 });
 </script>
 <template></template>
-<style scoped></style>

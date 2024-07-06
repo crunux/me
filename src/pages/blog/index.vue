@@ -4,8 +4,8 @@ type Data = {
   posts: Posts[];
 };
 
-useHead({
-  title: "Blogs",
+useSeoMeta({
+  title: "Blog",
 });
 const query = gql`
   query getPosts {
@@ -32,11 +32,9 @@ const { data, error, refresh } = await useAsyncQuery<Data>(query);
 </script>
 <template>
   <section class="w-[90%]">
-    <div
-      class="w-screen flex flex-col justify-center items-center"
+    <div class="w-screen flex flex-col justify-center items-center"
       v-for="post in data.posts"
-      :key="post.id"
-    >
+      :key="post.id">
       <PostCard :post="post" />
     </div>
   </section>

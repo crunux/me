@@ -3,7 +3,7 @@ import type { Project } from "@/types";
 import "swiper/css";
 import "swiper/css/pagination";
 
-useHead({
+useSeoMeta({
   title: "Projects",
 });
 
