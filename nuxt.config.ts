@@ -28,9 +28,11 @@ export default defineNuxtConfig({
   runtimeConfig: {
     hygraphToken: process.env.HYGRAPH_TOKEN,
     hygraphApi: process.env.HYGRAPH_API,
-    SERVICES_ID: process.env.SERVICES_ID || "",
-    TEMPLATE_ID: process.env.TEMPLATE_ID || "",
-    USER_ID: process.env.PUBLIC_KEY || "",
+    public: {
+      servicesId: process.env.SERVICES_ID,
+      templateId: process.env.TEMPLATE_ID,
+      userId: process.env.PUBLIC_KEY,
+    }
   },
 
   apollo: {

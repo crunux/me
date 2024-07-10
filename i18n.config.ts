@@ -7,7 +7,7 @@ export default defineI18nConfig(() => ({
             home: {
                 name: 'JOAN CRUZ',
                 greet: 'Hi, My name is',
-                ocupation: 'Fullstack Developer'
+                ocupation: 'Frontend Developer'
             },
             about: {
                 title: "About Me",
@@ -19,7 +19,7 @@ export default defineI18nConfig(() => ({
             home: {
                 name: 'JOAN CRUZ',
                 greet: 'Hola, Mi nombre es',
-                ocupation: 'Fullstack Developer'
+                ocupation: 'Frontend Developer'
             },
             about: {
                 title: "Acerca de Mi",
