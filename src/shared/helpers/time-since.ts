@@ -1,7 +1,5 @@
 
 
-
-
 export const timeSince = (date: string) => {
 
     const baseDate = new Date(date)
