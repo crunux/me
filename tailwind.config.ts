@@ -4,7 +4,7 @@ export default <Partial<Config>>{
     darkMode: 'class',
     theme: {
         screens: {
-            'movil': '375px',
+            'movil': '360px',
             'table': '640px',
             'laptop': '1024px',
             'desktop': '1440px',
