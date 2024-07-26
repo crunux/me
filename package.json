@@ -7,16 +7,21 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.23.1",
     "@iconify-json/carbon": "^1.1.25",
     "@nuxt/devtools": "^1.0.8",
+    "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/apollo": "^5.0.0-alpha.10",
     "@nuxtjs/color-mode": "^3.3.0",
     "@nuxtjs/i18n": "^8.0.0-rc.5",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@unocss/nuxt": "^0.57.0",
+    "eslint": "^9.7.0",
     "nuxt": "^3.9.0",
     "nuxt-icon": "^0.6.7",
     "vue": "^3.3.8",
