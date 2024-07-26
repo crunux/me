@@ -1,12 +1,11 @@
 <script setup lang="ts">
-const colorMode = useColorMode();
-interface Props {
-  tag: string;
-  markdownString: string;
-}
+  interface Props {
+    tag?: string;
+    markdownString?: string;
+  }
 
-const props = defineProps<Props>();
+  defineProps<Props>();
 </script>
 <template>
-  <div v-html="$mdRenderer.render(props.markdownString)"></div>
+  <div v-if="markdownString" v-html="$mdRenderer.render(markdownString)"></div>
 </template>
