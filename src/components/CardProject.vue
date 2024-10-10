@@ -31,12 +31,12 @@ defineProps<Props>();
         class="w-full group-hover:flex hidden justify-between items-center p-1 text-color"
       >
         <a
-          :href="`https://github.com/cr0s502/${project.github}`"
+          :href="`https://github.com/crunux/${project.github}`"
           target="_blank"
           >Github</a
         >
         <a
-          :href="`https://github.com/cr0s502/${project.github}`"
+          :href="project.preview"
           target="_blank"
           >Preview</a
         >
@@ -45,7 +45,7 @@ defineProps<Props>();
         class="group-hover:flex hidden p-1 justify-center items-center bottom-0 border rounded-xl w-full borde-color"
       >
         <img
-          class="w-10 h-10 rounded-full"
+          class="w-10 h-10 object-cover rounded-full"
           v-for="(tech, index) in project.techs"
           :key="index"
           :src="tech.url"
