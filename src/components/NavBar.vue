@@ -100,8 +100,8 @@ const socialLinks: LinkSocial[] = [
         activeRoute ? 'movil:hidden laptop:flex' : !activeRoute ? 'flex' : ''
       "
     >
-      <LanguageSwitcher aria-labelledby="changeLanguage"/>
-      <DarkSwitcher aria-labelledby="changeThemeMode"/>
+      <LanguageSwitcher/>
+      <DarkSwitcher/>
     </div>
   </nav>
 </template>

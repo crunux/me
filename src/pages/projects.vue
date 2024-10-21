@@ -42,7 +42,7 @@ const query = gql`
       image {
         url(
           transformation: {
-            image: { resize: { height: 350, width: 500, fit: clip } }
+            image: { resize: { height: 400, width: 500, fit: clip } }
           }
         )
       }

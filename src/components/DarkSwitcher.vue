@@ -8,6 +8,7 @@ const toggleDark = useToggle(isDark);
   >
     <button
       name="theme-mode"
+      aria-labelledby="changeThemeMode"
       class="laptop:text-[32px] movil:text-[22px] dark:text-[#d9d9d9] text-[#2d2e2e]"
       dark:i-carbon-asleep-filled
       i-carbon-awake
