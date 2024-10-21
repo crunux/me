@@ -3,7 +3,11 @@ import type { Route } from "~/types";
 interface Props {
   links: Route[];
 }
+
 defineProps<Props>();
+
+const { home } = inject('hero')
+
 </script>
 <template>
   <section
@@ -23,13 +27,13 @@ defineProps<Props>();
           <h4
             class="laptop:text-[80px] movil:text-[60px] text-center laptop:leading-none font-ubuntu dark:text-[#d9d9d9] text-[#2d2e2e] font-bold"
           >
-            {{ $t("home.name") }}
+            {{ home.name.toUpperCase() }}
           </h4>
 
           <h5
             class="dark:text-[#d9d9d9] text-[#2d2e2e] font-ubuntu table:text-[35px] table:text-center laptop:leading-none movil:text-[24px] movil:truncate movil:top-3 laptop:text-[50px]"
           >
-            {{ $t("home.ocupation") }}
+            {{ home.occupation }}
           </h5>
         </div>
 
@@ -49,7 +53,7 @@ defineProps<Props>();
       <div class="w-[45%] flex justify-center items-center">
         <img
           class="laptop:w-[400px] table:w-[400px] movil:hidden table:block laptop:block rounded-[20px]"
-          src="../assets/img/me.jpg"
+          :src="home.avatar.url"
           loading="lazy"
           alt="Joan Cruz"
         />

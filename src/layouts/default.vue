@@ -1,5 +1,8 @@
 <script setup lang="ts">
 import type { Route } from "~/types";
+
+const {t} = useI18n()
+
 const links = ref<Route[]>([
   {
     name: "Home",
@@ -50,6 +53,51 @@ useHead({
     },
   ],
 });
+
+
+const query = gql`
+  query getHero {
+  hero(locales: en, where: {id: "cm2iy2j2o052v07k2he41hrie"}) {
+    about
+    createdAt
+    name
+    occupation
+    avatar {
+      url(transformation: {image: {resize: {fit: clip, height: 400, width: 400}}})
+    }
+    id
+  }
+}
+`
+
+// const query = gql`
+//   query getHeroes {
+//     heroes {
+//       id
+//       about
+//       createdAt
+//       name
+//       occupation
+//       avatar {
+//         url(transformation: {image: {resize: {fit: clip, height: 400, width: 400}}})
+//       }
+//     }
+//   }
+// `
+
+const { data, error, refresh } = await useAsyncQuery<Projects>(query);
+watch(data, async () => {
+  await refresh();
+});
+
+console.log(data.value);
+
+
+provide('hero', {
+  about: data.value.hero.about,
+  home: data.value.hero
+})
+
 </script>
 <template>
   <div>
