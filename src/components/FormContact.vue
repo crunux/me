@@ -9,7 +9,6 @@ const form: SendEmail = reactive({
 });
 const el = ref<HTMLElement>();
 const fields = reactive(useElementBounding(el));
-watchEffect(() => console.log(fields));
 
 const sendEmail = () => {
   useSendEmail(form);
@@ -43,7 +42,7 @@ const sendEmail = () => {
         justify-center
         items-center
         w-full
-        class="movil:w-full laptop:w-[45%]"
+        class="movil:w-full laptop:w-[50%]"
         m1>
         <div ref="el"
           class="flex movil:flex-col movil:justify-center laptop:flex-row laptop:justify-initial gap2 flex-wrap">

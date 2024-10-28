@@ -53,7 +53,7 @@ const { home } = inject('hero')
       <div class="w-[45%] flex justify-center items-center">
         <img
           class="laptop:w-[400px] table:w-[400px] movil:hidden table:block laptop:block rounded-[20px]"
-          :src="home.avatar.url"
+          :src="home?.avatar?.url"
           loading="lazy"
           alt="Joan Cruz"
         />

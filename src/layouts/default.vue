@@ -29,7 +29,7 @@ const links = ref<Route[]>([
 useSeoMeta({
   description: "Porfolio of Joan Cruz",
   ogTitle: "Joan Cruz - Crunux",
-  ogDescription: "CV Joan Cruz Fullstack Developer",
+  ogDescription: "Joan Cruz Developer, manejando diferentes tecnologia, aplicando condigo de calidad.",
   ogImage:
     "https://pbs.twimg.com/profile_images/1421116782069403649/9TRcKV2t_400x400.jpg",
   ogUrl: "crunux.me",
@@ -89,9 +89,6 @@ const { data, error, refresh } = await useAsyncQuery<Projects>(query);
 watch(data, async () => {
   await refresh();
 });
-
-console.log(data.value);
-
 
 provide('hero', {
   about: data.value.hero.about,

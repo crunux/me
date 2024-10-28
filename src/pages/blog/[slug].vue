@@ -56,7 +56,7 @@ console.log(data.value?.post.content)
 const { data: ast } = await useAsyncData('markdown', () => parseMarkdown(data.value?.post.content))
 </script>
 <template>
-  <section class="mt-20 px-4 pb-20 table:px-10 laptop:mx-auto laptop:max-w-340 laptop:pb-28">
+  <section class="mt-20 px-4 pb-20 table:px-10 laptop:mx-auto laptop:max-w-[calc(100vw-5rem)] laptop:max-w-340 laptop:pb-28">
     <!-- <div class="relative grid place-items-center h-auto rounded-[20px] w-08/12 bg-[#c5c5c5] dark:bg-[#2d2e2e]"> -->
     <div class="mx-auto max-w-200 pt-10 table:pt-18">
       <img class="rounded-[20px]" :src="data?.post.image.url" :alt="data?.post.tittle" />
