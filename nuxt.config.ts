@@ -1,7 +1,20 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@vueuse/nuxt', '@nuxtjs/i18n', '@nuxtjs/color-mode', '@nuxt/eslint', '@nuxtjs/apollo', '@unocss/nuxt', 'nuxt-icon', '@nuxt/image', 'nuxt-swiper', '@vee-validate/nuxt'],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@vueuse/nuxt',
+    '@nuxtjs/i18n',
+    '@nuxtjs/color-mode',
+    '@nuxt/eslint',
+    '@nuxtjs/apollo',
+    '@unocss/nuxt',
+    'nuxt-icon',
+    '@nuxt/image',
+    'nuxt-swiper',
+    '@vee-validate/nuxt',
+    '@nuxtjs/mdc',
+  ],
   srcDir: 'src/',
   ssr: false,
 
@@ -10,6 +23,14 @@ export default defineNuxtConfig({
   },
   features: {
     inlineStyles: false,
+  },
+
+  mdc: {
+    highlight: {
+      theme: 'github-dark',
+      langs: ['js', 'ts', 'html', 'css', 'json', 'bash', 'shell', 'yaml', 'xml', 'markdown', 'md', 'vue', 'nginx', 'graphql', 'sql', 'dockerfile', 'python', 'py', 'sh', 'scss', 'mdc', 'yml'],
+      wrapperStyle: true
+    },
   },
 
   css: ['~/assets/css/main.css'],
