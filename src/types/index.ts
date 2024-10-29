@@ -57,3 +57,17 @@ export interface SendEmail {
     email: string;
     message: string;
 }
+
+export interface Hero{
+    about: string;
+    home: string;
+    name: string;
+    ocupattion: string;
+    avatar: {url: string};
+    createdAt: string;
+}
+
+export interface ProvideHero{
+    about: string;
+    home: Hero;
+}

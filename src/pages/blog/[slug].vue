@@ -22,7 +22,6 @@ import { parseMarkdown } from '@nuxtjs/mdc/runtime'
         url(
           transformation: {
             document: { output: { format: svg } }
-            image: { resize: { height: 350, width: 700, fit: scale } }
           }
         )
       }
@@ -52,12 +51,11 @@ if (error.value) {
   });
 
 console.log(data.value?.post.content)
-
-const { data: ast } = await useAsyncData('markdown', () => parseMarkdown(data.value?.post.content))
+const { data: ast } = await useAsyncData('markdown', () => parseMarkdown(data.value?.post.content ?? ''))
 </script>
 <template>
-  <section class="mt-20 px-4 pb-20 table:px-10 laptop:mx-auto laptop:max-w-[calc(100vw-5rem)] laptop:max-w-340 laptop:pb-28">
-    <!-- <div class="relative grid place-items-center h-auto rounded-[20px] w-08/12 bg-[#c5c5c5] dark:bg-[#2d2e2e]"> -->
+  <section
+    class="mt-20 px-4 pb-20 table:px-10 laptop:mx-auto laptop:max-w-[calc(100vw-5rem)] laptop:max-w-340 laptop:pb-28">
     <div class="mx-auto max-w-200 pt-10 table:pt-18">
       <img class="rounded-[20px]" :src="data?.post.image.url" :alt="data?.post.tittle" />
     </div>
@@ -74,7 +72,6 @@ const { data: ast } = await useAsyncData('markdown', () => parseMarkdown(data.va
       <h3 class="font-nunito font-semibold">Created By</h3>
       <CreatedBy :createdBy="data?.post.createdBy" />
     </div>
-    <!-- </div> -->
   </section>
 </template>
 <style scoped>

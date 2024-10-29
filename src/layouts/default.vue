@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Route } from "~/types";
+import type { Hero, ProvideHero, Route } from "~/types";
 
 const {t} = useI18n()
 
@@ -85,15 +85,18 @@ const query = gql`
 //   }
 // `
 
-const { data, error, refresh } = await useAsyncQuery<Projects>(query);
+const { data, error, refresh } = await useAsyncQuery<{ hero: Hero }>(query);
 watch(data, async () => {
   await refresh();
 });
 
-provide('hero', {
+if (data.value) {
+  provide<ProvideHero>('hero', {
   about: data.value.hero.about,
   home: data.value.hero
 })
+
+}
 
 </script>
 <template>

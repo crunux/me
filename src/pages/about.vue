@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import type { ProvideHero } from '~/types';
+
 useSeoMeta({
   title: "About",
 });
-const {about, home} = inject('hero')
+const { about, home } = inject<ProvideHero>('hero') ?? {}
 </script>
 <template>
   <section
