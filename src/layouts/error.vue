@@ -2,5 +2,7 @@
 
 </script>
 <template>
-  <slot />
+  <section>
+    <slot />
+  </section>
 </template>
