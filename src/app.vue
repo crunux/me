@@ -97,19 +97,11 @@ const isBuilding = ref(true);
 // cookie.value = cookie.value || hygraphToken
 </script>
 <template>
-  <div>
+  <div class="flex flex-col h-screen">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
     <UnderConstruction v-model="isBuilding" />
   </div>
 </template>
-<style>
-.dark body {
-  background: #303231;
-}
-
-.light body {
-  background: #d9d9d9;
-}
-</style>
+<style></style>

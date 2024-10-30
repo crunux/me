@@ -100,12 +100,12 @@ if (data.value) {
 
 </script>
 <template>
+  <NavBar />
   <div>
-    <NavBar />
     <Home :links="links" />
     <slot />
-    <Footer />
   </div>
+  <Footer />
 </template>
 
 <style scoped></style>
