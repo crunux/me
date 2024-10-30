@@ -14,6 +14,9 @@ export default <Partial<Config>>{
                 ubuntu: ['Ubuntu', 'sans-serif'],
                 bungee: ['Bungee', 'sans-serif'],
                 nunito: ['Nunito', 'sans-serif'],
+            },
+            colors: {
+                "color-primary": "#40CEF7",
             }
         }
     },
