@@ -38,6 +38,10 @@ import { parseMarkdown } from '@nuxtjs/mdc/runtime'
     slug: slug,
   });
 
+if (data.value?.post === null) {
+  throw createError(({ statusCode: 404, message: "Page not found", fatal: true }))
+}
+
 if (error.value) {
     router.push({ name: "blog" })
   }

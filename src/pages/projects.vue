@@ -66,22 +66,12 @@ watch(data, async () => {
 });
 </script>
 <template>
-  <Swiper
-    class="py-2 max-w-[90%] rounded-[20px] section-bg-color"
-    :modules="[SwiperPagination]"
-    :breakpoints="perViews"
+  <Swiper class="py-2 max-w-[90%] rounded-[20px] section-bg-color" :modules="[SwiperPagination]" :breakpoints="perViews"
     :scrollbar="{
       draggable: true,
-    }"
-    :pagination="{ el: '.swiper-pagination', clickable: true }"
-    :keyboard="{ enabled: true }"
-    :grabCursor="true"
-  >
-    <SwiperSlide
-      class="movil:px-3 table:px-3 flex justify-center items-center"
-      v-for="project in data.projects"
-      :key="project.id"
-    >
+    }" :pagination="{ el: '.swiper-pagination', clickable: true }" :keyboard="{ enabled: true }" :grabCursor="true">
+    <SwiperSlide class="movil:px-3 table:px-3 flex justify-center items-center" v-for="project in data.projects"
+      :key="project.id">
       <CardProject :project="project" />
     </SwiperSlide>
     <div class="swiper-pagination"></div>

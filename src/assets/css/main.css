@@ -5,6 +5,14 @@ body {
   overflow-x: hidden;
 }
 
+.dark body {
+  background: #303231;
+}
+
+.light body {
+  background: #d9d9d9;
+}
+
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.5s;
