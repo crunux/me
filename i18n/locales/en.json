@@ -1,0 +1,11 @@
+{
+  "home": {
+    "name": "JOAN CRUZ",
+    "greet": "Hi, My name is",
+    "ocupation": "Frontend Developer"
+  },
+  "about": {
+    "title": "About Me",
+    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
+  }
+}

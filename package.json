@@ -18,7 +18,7 @@
     "@nuxt/eslint": "^0.3.13",
     "@nuxtjs/apollo": "^5.0.0-alpha.10",
     "@nuxtjs/color-mode": "^3.3.0",
-    "@nuxtjs/i18n": "^8.0.0-rc.5",
+    "@nuxtjs/i18n": "^10.2.1",
     "@nuxtjs/mdc": "^0.9.2",
     "@nuxtjs/tailwindcss": "^6.9.4",
     "@unocss/nuxt": "^0.57.0",

@@ -17,6 +17,7 @@ export default <Partial<Config>>{
             },
             colors: {
                 "color-primary": "#40CEF7",
+                "color-primary-hover": "#0284b8",
             }
         }
     },

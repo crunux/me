@@ -15,12 +15,20 @@ export default defineNuxtConfig({
     '@vee-validate/nuxt',
     '@nuxtjs/mdc',
   ],
-  srcDir: 'src/',
+  srcDir: 'app/',
   ssr: false,
 
   i18n: {
-    vueI18n: './i18n.config.ts'
+    defaultLocale: 'en',
+    locales: [
+      { code: 'en', name: 'English', file: 'en.json' },
+      { code: 'es', name: 'Español', file: 'es.json' }
+    ]
   },
+
+  // i18n: {
+  //   vueI18n: './i18n.config.ts'
+  // },
   features: {
     inlineStyles: false,
   },
@@ -46,19 +54,19 @@ export default defineNuxtConfig({
   },
 
   runtimeConfig: {
-    hygraphToken: process.env.HYGRAPH_TOKEN,
-    hygraphApi: process.env.HYGRAPH_API,
+    hygraphToken: import.meta.env.HYGRAPH_TOKEN,
+    hygraphApi: import.meta.env.HYGRAPH_API,
     public: {
-      servicesId: process.env.SERVICES_ID,
-      templateId: process.env.TEMPLATE_ID,
-      userId: process.env.PUBLIC_KEY,
+      servicesId: import.meta.env.SERVICES_ID,
+      templateId: import.meta.env.TEMPLATE_ID,
+      userId: import.meta.env.PUBLIC_KEY,
     }
   },
 
   apollo: {
     clients: {
       default: {
-        httpEndpoint: `${process.env.HYGRAPH_API}`,
+        httpEndpoint: `${import.meta.env.HYGRAPH_API}`,
         // tokenName: 'cross-hygraph',
         // tokenType: 'Bearer',
         // authHeader: 'Authorization',
@@ -67,16 +75,6 @@ export default defineNuxtConfig({
     },
   },
 
-  // veeValidate: {
-  //   // disable or enable auto imports
-  //   autoImports: true,
-  //   // Use different names for components
-  //   componentNames: {
-  //     Form: 'VeeForm',
-  //     Field: 'VeeField',
-  //     ErrorMessage: 'VeeErrorMessage',
-  //   },
-  // },
   image: {
     format: ['webp'],
     domains: ['crunux.me'],

@@ -4,34 +4,35 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
   // Your custom configs here
-  await antfu({
-    type: 'lib',
+  // await antfu({
+  //   // type: 'lib',
 
-  // Or customize the stylistic rules
-    stylistic: {
-      indent: 2, // 4, or 'tab'
-      quotes: 'single', // or 'double'
-    },
+  // // Or customize the stylistic rules
+  //   stylistic: {
+  //     indent: 2, // 4, or 'tab'
+  //     quotes: 'single', // or 'double'
+  //   },
   
-  // TypeScript and Vue are autoetected, you can also explicitly enable them:
-    typescript: true,
-    vue: true,
-    jsonc: true,
-    unocss: true,
+  // // TypeScript and Vue are autoetected, you can also explicitly enable them:
+  //   typescript: true,
+  //   vue: true,
+  //   jsonc: true,
+  //   unocss: true,
 
-    // Disable jsonc and yaml support
-    yaml: false,
+  //   // Disable jsonc and yaml support
+  //   yaml: false,
 
-    // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
-    ignores: [
-      '**/fixtures',
-      // ...globs
-    ]
-  }, {
+  //   // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
+  //   ignores: [
+  //     '**/fixtures',
+  //     // ...globs
+  //   ]
+  // }, {
+  [
     files: ['**/*.vue'],
     rules: {
-      'indent': ['error', 4],
-      'vue/script-indent': ['error', 4,
+      'indent': ['error', 2],
+      'vue/script-indent': ['error', 2,
         {
           'baseIndent': 1,
           'switchCase': 1,
@@ -39,5 +40,6 @@ export default withNuxt(
         }
       ]
     },
-  })
+  ]
+  // })
 )

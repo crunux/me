@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Bungee&family=Nunito:wght@400;500;700&family=Ubuntu:wght@400;500;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.dark body {
+  background: #303231;
+}
+
+.light body {
+  background: #d9d9d9;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.5s;
+}
+
+/* textarea:focus {
+  --un-ring-width: 0;
+  outline: none;
+} */
+
+/* input:focus {
+  --un-ring-width: 0;
+  outline: none;
+  --un-ring-color: theme('colors.green.500');
+} */
+
+
+/* Scroll-triggered animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scale-in {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered children animation */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.stagger-children.visible > *:nth-child(1) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(2) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(4) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(5) { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
+.stagger-children.visible > *:nth-child(6) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
+
+/* Hero text animation */
+.hero-text-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: heroReveal 0.8s ease-out forwards;
+}
+
+.hero-text-reveal:nth-child(1) { animation-delay: 0.2s; }
+.hero-text-reveal:nth-child(2) { animation-delay: 0.5s; }
+.hero-text-reveal:nth-child(3) { animation-delay: 0.8s; }
+
+@keyframes heroReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #40CEF7 0%, #1a9fd4 50%, #40CEF7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* animation: gradientShift 3s ease-in-out infinite; */
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+}
+
+/* Page transition */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+/* Section divider */
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: #40CEF7;
+  border-radius: 2px;
+  margin: 0 auto;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.dark .card-hover:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Smooth link underline */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #40CEF7;
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
