@@ -11,7 +11,6 @@ export default defineNuxtConfig({
     '@unocss/nuxt',
     'nuxt-icon',
     '@nuxt/image',
-    'nuxt-swiper',
     '@vee-validate/nuxt',
     '@nuxtjs/mdc',
   ],
@@ -41,7 +40,7 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
 
   colorMode: {
     classSuffix: '',

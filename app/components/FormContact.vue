@@ -13,68 +13,24 @@ const fields = reactive(useElementBounding(el));
 const sendEmail = () => {
   useSendEmail(form);
 };
+
 </script>
 <template>
-  <div flex="~ col"
-    w-full
-    justify-center
-    text-center
-    items-center
-    text-color
-    p2>
-    <!-- <h2 font-bold
-      mb3
-      class="font-ubuntu movil:mt-2 movil:text-3xl laptop:text-5xl">
-      Contact me
-    </h2> -->
-    <!-- <div flex
-      w-full
-      justify-between
-      items-center> -->
-      
-      <form @submit.prevent="sendEmail"
-        flex="~ col"
-        justify-center
-        items-center
-        w-full
-        class="movil:w-full laptop:w-[50%]"
-        m1>
-        <div ref="el"
-          class="flex movil:flex-col movil:justify-center laptop:flex-row laptop:justify-initial gap2 flex-wrap">
-          <FieldForm v-model="form.name"
-            max-w-60
-            label="Name:"
-            type="text"
-            name="name" />
-          <FieldForm v-model="form.lastname"
-            max-w-60
-            label="Last Name:"
-            type="text"
-            name="lastname" />
-        
-        </div>
-        <div :style="{ width: `${fields.width}px` }">
-          <FieldForm v-model="form.email"
-            max-w-full
-            label="Email:"
-            type="email"
-            name="email" />
-          <TextareaForm v-model="form.message"
-            py2
-            my2
-            label="Message:"
-            name="message" />
-        </div>
-        <div justify-center
-        text-sm laptop:text-md font-nunito>
-        <button p2
-            block
-            m1
-            border="~ rounded-md"
-            type="submit">Enviar</button>
-        </div>
-      </form>
+  <form @submit.prevent="sendEmail">
+    <div ref="el" class="flex flex-col">
+      <FieldForm v-model="form.name" max-w-100 label="Name:" type="text" name="name" />
+      <FieldForm v-model="form.lastname" max-w-100 label="Last Name:" type="text" name="lastname" />
     </div>
-  <!-- </div> -->
+    <div>
+      <div class="">
+        <FieldForm v-model="form.email" max-w-100 label="Email:" type="email" name="email" />
+        <TextareaForm v-model="form.message" max-w-100 py2 my2 label="Message:" name="message" />
+      </div>
+      <div class="text-center mt-10">
+        <button
+          class="rounded-md bg-primary px-5 py-2 text-md font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          type="submit">Enviar</button>
+      </div>
+    </div>
+  </form>
 </template>
-<style scoped></style>

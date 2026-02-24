@@ -35,7 +35,6 @@
     "@vee-validate/zod": "^4.12.4",
     "@vueuse/nuxt": "^10.5.0",
     "markdown-it": "^13.0.2",
-    "nuxt-swiper": "^1.2.2",
     "zod": "^3.22.4"
   },
   "resolutions": {

@@ -14,31 +14,10 @@ withDefaults(defineProps<Props>(), {
 </script>
 <template>
   <div flex="~ col" justify-start items-start py-2>
-    <label
-      v-if="label || !placeholder"
-      text-sm
-      class="font-nunito"
-      :for="name"
-    >
+    <label v-if="label || !placeholder" class="text-muted-foreground text-sm font-nunito" :for="name">
       {{ label }}
     </label>
-    <input
-    w-full
-      text-gray500
-      bg-gray200
-      h-7
-      border-rounded-md
-      outline-none
-      focus:ring-2
-      focus:ring-inset
-      focus:ring-[#1a9fd4]
-      px2
-      my1
-      v-model="input"
-      :type="type"
-      :placeholder="placeholder"
-      :name="name"
-      :id="name"
-    />
+    <input class="w-full bg-secondary text-base h-8 border-rounded-md outline-none focus:ring-2 focus:ring-inset
+      focus:ring-primary px2 my1" v-model="input" :type="type" :placeholder="placeholder" :name="name" :id="name" />
   </div>
 </template>

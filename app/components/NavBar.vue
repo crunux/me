@@ -1,98 +1,81 @@
 <script setup lang="ts">
-import type { Route } from "~~/app/types";
-import type { LinkSocial } from "../types/index";
-interface Props {
-  activeRoute?: boolean;
-  links?: Route[];
-}
-
-const { links, activeRoute } = defineProps<Props>();
+const route = useRoute();
 
 const isScrolled = ref(false);
 const { y } = useWindowScroll();
+const mobileOpen = ref(false);
+
+const navLinks = [
+  { href: "/", label: "Home" },
+  { href: "/projects", label: "Projects" },
+  { href: "/blog", label: "Blog" },
+]
 
 watch(y, (newValue: number) => {
   isScrolled.value = newValue >= 20;
 });
 
-const socialLinks: LinkSocial[] = [
-  {
-    name: "linkedin",
-    link: "https://www.linkedin.com/in/joancruz0502",
-    icon: "i-carbon-logo-linkedin",
-  },
-  {
-    name: "github",
-    link: "https://github.com/crunux",
-    icon: "i-carbon-logo-github",
-  },
-  {
-    name: "twitter",
-    link: "https://twitter.com/crunux0",
-    icon: "i-carbon-logo-x",
-  },
-];
+
 </script>
 <template>
-  <nav
-    class="flex fixed w-screen h-[60px] top-0 left-0 z-[99] justify-between items-center transition-all duration-300"
-    :class="{ 'navbar-scrolled': isScrolled }"
-  >
+  <header
+    class="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md overflow-x-hidden">
+    <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
+      <NuxtLink to="/" class="flex items-center gap-0 text-lg font-bold tracking-tight">
+        <span class="text-foreground">Cru</span>
+        <span class="text-primary">nux</span>
+      </NuxtLink>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden items-center gap-8 md:flex">
+        <li v-for="link in navLinks" :key="link.href">
+          <NuxtLink :to="link.href"
+            :class="`text-sm font-medium transition-colors hover:text-primary ${route.path === link.href ? 'text-primary' : 'text-muted-foreground'}`">
+            {{ link.label }}
+          </NuxtLink>
+        </li>
+      </ul>
+
+      <!-- Mobile Toggle -->
+      <button @click="mobileOpen = !mobileOpen" class="text-foreground md:hidden"
+        :aria-label="mobileOpen ? 'Close menu' : 'Open menu'">
+        <Icon v-if="mobileOpen" name="lucide:x" class="h-5 w-5" />
+        <Icon v-else name="lucide:menu" class="h-5 w-5" />
+      </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div v-if="mobileOpen" class="border-t border-border/50 bg-background/95 backdrop-blur-md md:hidden">
+      <ul class="flex flex-col gap-1 px-6 py-4">
+        <li v-for="link in navLinks" :key="link.href">
+          <NuxtLink :to="link.href" @click="mobileOpen = false" :class="`block rounded-md px-3 py-2 text-sm font-medium transition-colors hover:bg-secondary ${route.path === link.href
+            ? 'text-primary'
+            : 'text-muted-foreground'
+            }`">
+            {{ link.label }}
+          </NuxtLink>
+        </li>
+      </ul>
+    </div>
+  </header>
+  <!-- <nav class="flex fixed w-screen h-[60px] top-0 left-0 z-[99] justify-between items-center transition-all duration-300"
+    :class="{ 'navbar-scrolled': isScrolled }">
     <div class="pl-4">
       <NuxtLink
         class="text-3xl font-ubuntu text-[#2d2e2e] dark:text-[#d9d9d9] font-semibold transition-colors duration-300"
-        to="/"
-        >
+        to="/">
         <span class="text-[#40CEF7]">Cru</span>nux
       </NuxtLink>
     </div>
-    <div
-      v-if="activeRoute"
-      class="movil:flex laptop:hidden justify-center items-center m-2"
-    >
-      <MenuToggle>
-        <template #socialLinks>
-          <SocialLink :links="socialLinks" />
-        </template>
-        <template #darkMode>
-          <div class="flex movil:w-auto movil:m-2 h-auto justify-center items-center text-center gap-1">
-            <DarkSwitcher />
-          </div>
-        </template>
-        <template #links>
-          <NuxtLink
-            class="cursor-pointer dark:text-[#d9d9d9] link font-ubuntu movil:text-center font-semibold text-[#2d2e2e] p-[10px] m-[2px]"
-            v-for="link in links"
-            :key="link.name"
-            :to="link.page"
-          >
-            {{ link.name }}
-          </NuxtLink>
-        </template>
-      </MenuToggle>
-    </div>
-    <div
-      v-if="activeRoute"
-      class="w-[450px] m-2 ml-8 movil:hidden laptop:flex flex-row laptop:items-start movil:items-center gap-[2px]"
-    >
+    <div v-if="activeRoute" class="w-[450px] m-2 ml-8 flex flex-row laptop:items-start movil:items-center gap-[2px]">
       <NuxtLink
         class="cursor-pointer dark:text-[#d9d9d9] nav-link font-ubuntu font-semibold text-[#2d2e2e] px-3 py-2 rounded-lg transition-all duration-300"
-        v-for="link in links"
-        :key="link.name"
-        :to="link.page"
-        >
+        v-for="link in links" :key="link.name" :to="link.page">
         {{ link.name }}
       </NuxtLink>
     </div>
-    <!-- Social links + controls -->
-    <div class="flex items-center gap-2 pr-4">
-      <div class="movil:hidden laptop:flex items-center">
-        <SocialLink :links="socialLinks" />
-      </div>
-      <LanguageSwitcher />
-      <DarkSwitcher />
-    </div>
-  </nav>
+    <!-- Social links + controls
+  </nav> -->
 </template>
 <style scoped>
 .navbar-scrolled {

@@ -3,12 +3,6 @@ import type { Config } from 'tailwindcss'
 export default <Partial<Config>>{
     darkMode: 'class',
     theme: {
-        screens: {
-            'movil': '360px',
-            'table': '640px',
-            'laptop': '1024px',
-            'desktop': '1440px',
-        },
         extend: {
             fontFamily: {
                 ubuntu: ['Ubuntu', 'sans-serif'],
@@ -16,9 +10,14 @@ export default <Partial<Config>>{
                 nunito: ['Nunito', 'sans-serif'],
             },
             colors: {
-                "color-primary": "#40CEF7",
-                "color-primary-hover": "#0284b8",
-            }
+                // "color-primary": "oklch(0.72 0.12 195)",
+                primary: "oklch(0.72 0.12 195)",
+                "primary-foreground": "oklch(0.15 0.02 255)",
+                secondary: "oklch(0.25 0.01 255)",
+                "secondary-foreground": "oklch(0.85 0 0)",
+                muted: "oklch(0.24 0.01 255)",
+                "muted-foreground": "oklch(0.6 0.01 255)"
+            },
         }
     },
     plugins: [],

@@ -4,6 +4,9 @@ export interface Posts {
     slug: string;
     tittle: string;
     image: Image;
+    excerpt: string;
+    readTime: string;
+    tags: string[];
 }
 
 export interface Post {
@@ -12,6 +15,9 @@ export interface Post {
     content: string;
     slug: string;
     image: Image;
+    excerpt: string;
+    readTime: string;
+    tags: string[];
     createdAt: string;
     createdBy: CreatedBy
 
@@ -20,6 +26,7 @@ export interface Post {
 interface Image {
     url: string;
 }
+
 export interface CreatedBy {
     name: string;
     picture: string;
@@ -50,6 +57,7 @@ export interface Project {
     github: string;
     preview: string;
     techs: Tech[];
+    tags: string[];
 }
 export interface SendEmail {
     name: string;

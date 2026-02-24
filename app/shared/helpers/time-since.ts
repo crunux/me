@@ -1,6 +1,6 @@
 
 
-export const timeSince = (date: string) => {
+export const timeSince = (date: string | Date) => {
 
     const baseDate = new Date(date)
 
@@ -42,4 +42,23 @@ export const timeSince = (date: string) => {
         ? Math.floor(interval) + ' second'
         : Math.floor(interval) + ' seconds';
 
+}
+
+
+export const timeSinceFull = (date: string | Date) => {
+    const baseDate = new Date(date)
+    const seconds = Math.floor((new Date().getTime() - baseDate.getTime()) / 1000);
+    return seconds;
+}
+
+export const formatDate = (date: string | Date) => {
+    const baseDate = new Date(date)
+    return baseDate.toLocaleDateString(
+        'en-US',
+        {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        }
+    )
 }

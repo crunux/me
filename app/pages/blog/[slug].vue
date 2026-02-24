@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { parseMarkdown } from "@nuxtjs/mdc/runtime";
+import { timeSince } from "~/shared/helpers/time-since";
 import type { Post } from "~~/app/types";
 
 type Data = {
@@ -9,9 +10,7 @@ const route = useRoute();
 const router = useRouter();
 const slug = route.params.slug;
 
-definePageMeta({
-  layout: "default",
-});
+
 
 const query = gql`
   query getPost($slug: String!) {
@@ -20,8 +19,11 @@ const query = gql`
       createdAt
       content
       tittle
+      excerpt
+      readTime
+      tags
       image {
-        url(transformation: { document: { output: { format: svg } } })
+        url(transformation: { document: { output: { format: png } } })
       }
       createdBy {
         name
@@ -53,7 +55,7 @@ useHead({
   meta: [
     {
       name: "description",
-      content: data.value?.post.slug,
+      content: data.value?.post.excerpt,
     },
     {
       name: "og:title",
@@ -61,7 +63,7 @@ useHead({
     },
     {
       name: "og:description",
-      content: data.value?.post.slug,
+      content: data.value?.post.excerpt,
     },
     {
       name: "og:image",
@@ -80,39 +82,46 @@ useHead({
 const { data: ast } = await useAsyncData("markdown", () =>
   parseMarkdown(data.value?.post.content ?? ""),
 );
+
+definePageMeta({
+  layout: "custom",
+});
 </script>
 <template>
-  <section
-    class="mt-20 px-4 pb-20 table:px-10 laptop:mx-auto laptop:max-w-[calc(100vw-5rem)] laptop:pb-28"
-  >
-    <div class="mx-auto max-w-200 pt-10 table:pt-18">
-      <img
-        class="rounded-[20px]"
-        :src="data?.post.image.url"
-        :alt="data?.post.tittle"
-      />
-    </div>
-    <h1
-      class="font-ubuntu font-semibold m-2 p-4 text-center text-4xl text-[#2d2e2e] dark:text-[#d9d9d9]"
-    >
-      {{ data?.post.tittle }}
-    </h1>
-    <!-- <MarkdownStringRender
-        class="laptop:text-xl movil:text-sm table:text-lg text-start font-nunito w-[60%] mt-3 p-4 text-[#2d2e2e] dark:text-[#d9d9d9]"
-        :markdownString="data?.post.content" :tag="data?.post.id" /> -->
-    <MDCRenderer
-      v-if="ast"
-      class="prose mt-10 laptop:w-[calc(100vw-30rem)] mx-auto max-w-none overflow-hidden laptop:prose-xl prose-a:text-sky-500 prose-a:no-underline prose-pre:overflow-auto movil:text-xs table:text-lg laptop:text-xl text-start font-nunito text-[#2d2e2e] dark:text-[#d9d9d9]"
-      :body="ast.body"
-      :data="ast.data"
-    />
-    <div
-      class="bottom-5 right-50 flex flex-col m-2 text-center text-sm laptop:text-xl text-[#2d2e2e] dark:text-[#d9d9d9]"
-    >
-      <h3 class="font-nunito font-semibold">Created By:</h3>
-      <CreatedBy :createdBy="data?.post.createdBy" />
-    </div>
-  </section>
+  <div class="max-w-[calc(100vw-2rem)] ml-0 overflow-x-hidden">
+    <NuxtLink href="/blog"
+      class="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary">
+      <Icon name="mdi:arrow-left" class="h-3.5 w-3.5" />
+      Back to blog
+    </NuxtLink>
+
+    <article class="">
+      <header class="mb-8">
+        <div class="mx-auto max-w-200 mb-2 pt-10 table:pt-18">
+          <img class="rounded-[20px]" :src="data?.post.image.url" :alt="data?.post.tittle" />
+        </div>
+        <!-- <h1 class="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-pretty">
+          {{ ast?.data?.title }}
+        </h1> -->
+        <div class="mt-4 flex items-center gap-3 text-sm text-muted-foreground">
+          <time>ago {{ timeSince(data?.post.createdAt as string) }}</time>
+          <span class="h-1 w-1 rounded-full bg-border" />
+          <span>{{ data?.post.readTime }}</span>
+        </div>
+      </header>
+
+      <div class="prose prose-invert w-full">
+        <p class="leading-relaxed text-muted-foreground">
+          {{ data?.post.excerpt }}
+        </p>
+        <div class="mt-8 rounded-lg px-2">
+          <MDCRenderer v-if="ast"
+            class="prose mt-10 laptop:w-[calc(100vw-20rem)] mx-auto max-w-none overflow-hidden laptop:prose-xl prose-a:text-sky-500 prose-a:no-underline prose-pre:overflow-auto movil:text-xs table:text-lg laptop:text-xl text-start font-nunito text-[#2d2e2e] dark:text-[#d9d9d9]"
+            :body="ast.body" :data="ast.data" />
+        </div>
+      </div>
+    </article>
+  </div>
 </template>
 <style scoped>
 pre {
