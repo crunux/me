@@ -12,7 +12,7 @@ useHead({
 </script>
 <template>
   <NavBar />
-  <main class="mx-auto min-h-[calc(100vh-8rem)] overflow-y-auto px-6 pt-28 pb-16 of-x-hidden">
+  <main class="mx-auto min-h-[calc(100vh-8rem)] max-w-5xl px-6 pt-28 pb-16">
     <slot />
   </main>
   <Footer />

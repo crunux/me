@@ -4,6 +4,7 @@ import type { Fn } from '@vueuse/core'
 const r180 = Math.PI
 const r90 = Math.PI / 2
 const r15 = Math.PI / 12
+// const color = 'emerald-400'
 const color = '#88888825'
 
 const el = ref<HTMLCanvasElement | null>(null)
@@ -112,7 +113,7 @@ onMounted(async () => {
     /**
      * 0.2 - 0.8
      */
-    const randomMiddle = () => random() * 0.6 + 0.2
+    const randomMiddle = () => random() * 0.6 + 0.4
 
     start.value = () => {
         controls.pause()
@@ -123,8 +124,8 @@ onMounted(async () => {
         steps = [
             () => step(randomMiddle() * size.width, -5, r90),
             () => step(randomMiddle() * size.width, size.height + 5, -r90),
-            () => step(-5, randomMiddle() * size.height, 0),
-            () => step(size.width + 5, randomMiddle() * size.height, r180),
+            // () => step(-5, randomMiddle() * size.height, 0),
+            // () => step(size.width + 5, randomMiddle() * size.height, r180),
         ]
         if (size.width < 500)
             steps = steps.slice(0, 2)

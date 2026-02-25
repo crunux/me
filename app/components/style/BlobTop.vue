@@ -1,7 +1,7 @@
 <template>
-    <div class="pointer-events-none absolute inset-x-0 transform-gpu blur-3xl -top-1/4 -z-10" aria-hidden="true">
-        <div
-            class="blob relative left-[calc(50%-30rem)] aspect-[1155/678] w-[72.1875rem] rotate-30 from-(--color-success) to-(--color-success) bg-gradient-to-tr opacity-30 -translate-x-1/2" />
+    <div class="pointer-events-none absolute inset-x-0 transform-gpu blur-3xl -top-1/4 z-1" aria-hidden="true">
+        <div class="blob relative left-[calc(50%-30rem)] aspect-[1155/678] w-[72.1875rem] rotate-30 bg-gradient-to-tr from-primary/80 to-accent/60 opacity-30 -translate-x-1/2"
+            style="background: linear-gradient(135deg, oklch(0.72 0.12 195), oklch(0.55 0.15 160))" />
     </div>
 </template>
 

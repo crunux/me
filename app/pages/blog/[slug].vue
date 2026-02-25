@@ -95,7 +95,7 @@ definePageMeta({
       Back to blog
     </NuxtLink>
 
-    <article class="">
+    <article>
       <header class="mb-8">
         <div class="mx-auto max-w-200 mb-2 pt-10 table:pt-18">
           <img class="rounded-[20px]" :src="data?.post.image.url" :alt="data?.post.tittle" />

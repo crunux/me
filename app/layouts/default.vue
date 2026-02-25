@@ -29,7 +29,7 @@ useHead({
 </script>
 <template>
   <NavBar />
-  <main class="of-x-hidden">
+  <main>
     <slot />
   </main>
   <Footer />
