@@ -1,11 +1,102 @@
 {
-  "home": {
-    "name": "JOAN CRUZ",
-    "greet": "Hi, My name is",
-    "ocupation": "Frontend Developer"
+  "hero": {
+    "name": "Joan Cruz",
+    "available": "Available for work",
+    "ocupation": [
+      "Fullstack Developer",
+      "Vue Developer",
+      "Science Degree"
+    ],
+    "skills": [
+      "Vue",
+      "TypeScript",
+      "Git",
+      "Docker",
+      "Linux",
+      "Python"
+    ]
   },
   "about": {
-    "title": "About Me",
-    "text": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod."
+    "title": "About",
+    "description": "Fullstack developer passionate about clean architecture, engineering principles, and developer experience with a focus on building high-performance web applications, mobile applications, web pages, APIs, microservices, and scalable systems. I work across the stack but my heart lives in the client side.",
+    "expect": "Currently exploring new focus topics on frontend and backend systems. Always learning.",
+    "experience": {
+      "title": "Experience",
+      "items": [
+        {
+          "period": "2024 - Present",
+          "title": "Fullstack Developer",
+          "company": "Freelance",
+          "description": "Building web applications, web pages, custom APIs and backend systems for clients using FastAPI, Node.js, and Docker.",
+          "tags": [
+            "Vue",
+            "NuxtJs",
+            "FastAPI",
+            "Docker",
+            "Express",
+            "Redis",
+            "Git",
+            "Linux",
+            "Server"
+          ]
+        },
+        {
+          "period": "2024 - Present",
+          "title": "Technical Support",
+          "company": "Medical Company",
+          "description": "Supporting medical systems and servers administration.",
+          "tags": [
+            "Git",
+            "Linux",
+            "Server",
+            "Terminal",
+            "SQL",
+            "Network",
+            "Python"
+          ]
+        },
+        {
+          "period": "2022 - 2024",
+          "title": "Frontend Developer",
+          "company": "Medical Company",
+          "description": "Developed and maintained web applications with Vue.js frontends connected to Java backends systems medical.",
+          "tags": [
+            "Vue",
+            "JavaScript"
+          ]
+        },
+        {
+          "period": "2022 - 2022",
+          "title": "Technical Support",
+          "company": "Medical Company",
+          "description": "Supporting medical systems and servers administration.",
+          "tags": [
+            "Git",
+            "Linux",
+            "Server",
+            "Terminal",
+            "SQL",
+            "Network",
+            "Python"
+          ]
+        }
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Projects I have built or contributed to. Currently learning and focusing on diferents environments."
+  },
+  "blogs": {
+    "title": "Blogs",
+    "description": "Latest posts"
+  },
+  "stack": {
+    "title": "Stack",
+    "description": "Stack of technologies and tools I use or have used."
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Get in touch"
   }
 }

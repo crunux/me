@@ -1,63 +1,32 @@
 <script setup lang="ts">
-import type { Project } from '~/types';
+  import type { Project } from '~/types';
+  const { locale } = useI18n();
 
-const query = gql`
-  query getProjects {
-    projects {
-      id
-      image {
-        url(
-          transformation: {
-            image: { resize: { height: 400, width: 500, fit: clip } }
+  const query = gql`
+        query getProjects ($locale: [Locale!]!) {
+          projects(locales: $locale, orderBy: publishedAt_DESC){
+            id
+            title
+            github
+            preview
+            description
+            tags
           }
-        )
-      }
-      title
-      github
-      preview
-      description
-      tags
-    }
-  }
-`;
+        }
+      `;
 
-// const query = gql`
-//   query getProjects {
-//     projects {
-//       github
-//       id
-//       image {
-//         url(
-//           transformation: {
-//             image: { resize: { height: 400, width: 500, fit: clip } }
-//           }
-//         )
-//       }
-//       title
-//       preview
-//       description
-//       tags
-//       techs {
-//         url(
-//           transformation: {
-//             image: { resize: { height: 200, width: 200, fit: clip } }
-//           }
-//         )
-//       }
-//     }
-//   }
-// `;
 
-const { data, error, refresh } = await useAsyncQuery<{ projects: Project[] }>(query);
-watch(data, async () => {
-  await refresh();
-});
+  const { data, error, refresh } = await useAsyncQuery<{ projects: Project[] }>(query, {
+    locale: [locale.value],
+  });
+
 </script>
 <template>
-  <div class="grid gap-4 md:grid-cols-2">
-    <CardProject v-if="data?.projects" v-for="project in data?.projects" :key="project.title" :project="project" />
-    <div v-else class="col-span-full text-center py-12">
-      <p class="text-muted-foreground">No projects found</p>
-    </div>
+  <div v-if="data?.projects" class="grid gap-4 md:grid-cols-2 fade-in">
+    <CardProject v-for="(project, indx) in data?.projects" :key="indx" :project="project" />
+  </div>
+  <div v-else class="text-center py-20 fade-in">
+    <div class="i-carbon-box text-6xl text-primary opacity-30 mx-auto mb-4" />
+    <p class="text-primary font-nunito opacity-50">No projects available yet.</p>
   </div>
 </template>
