@@ -1,8 +1,9 @@
 // @ts-check
-import antfu from '@antfu/eslint-config'
+// @ts-ignore
+// import antfu from '@antfu/eslint-config'
 import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default withNuxt(
+export default withNuxt([
   // Your custom configs here
   // await antfu({
   //   // type: 'lib',
@@ -11,6 +12,7 @@ export default withNuxt(
   //   stylistic: {
   //     indent: 2, // 4, or 'tab'
   //     quotes: 'single', // or 'double'
+  //     semi: true,
   //   },
   
   // // TypeScript and Vue are autoetected, you can also explicitly enable them:
@@ -20,26 +22,24 @@ export default withNuxt(
   //   unocss: true,
 
   //   // Disable jsonc and yaml support
-  //   yaml: false,
+  //   // yaml: false,
 
   //   // `.eslintignore` is no longer supported in Flat config, use `ignores` instead
   //   ignores: [
   //     '**/fixtures',
   //     // ...globs
   //   ]
-  // }, {
-  [
-    files: ['**/*.vue'],
-    rules: {
-      'indent': ['error', 2],
-      'vue/script-indent': ['error', 2,
-        {
-          'baseIndent': 1,
-          'switchCase': 1,
-          'ignores': []
-        }
-      ]
-    },
-  ]
-  // })
-)
+  // }), 
+  {
+      files: ['**/*.vue', '**/*.ts', '**/*.js'],
+      rules: {
+        // 'indent': ['error', 'tab'],
+        'quotes': ['error', 'single'],
+        'semi': ['error', 'always'],
+        'vue/script-indent': ['error', 'tab', {
+          baseIndent: 1
+        }]
+      }
+    }
+])
+

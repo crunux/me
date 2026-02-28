@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-import type { NuxtError } from '#app'
+	import type { NuxtError } from '#app'
 
-useDark();
-defineProps(
-  { error: Object as () => NuxtError }
-)
+	useDark();
+	defineProps(
+	{ error: Object as () => NuxtError }
+	)
 
 
 </script>

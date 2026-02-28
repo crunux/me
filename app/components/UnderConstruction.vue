@@ -2,8 +2,10 @@
 const value = defineModel({ type: Boolean, default: false });
 </script>
 <template>
-  <div flex
+  <div
+flex
     absolute
+    v-show="value"
     top-0
     right-0
     left-0
@@ -13,9 +15,9 @@ const value = defineModel({ type: Boolean, default: false });
     w-full
     md:inset-0
     class="h-[calc(100%-1rem)]"
-    max-h-full
-    v-show="value">
-    <div p-4
+    max-h-full>
+    <div
+p-4
       top-20
       w-full
       max-w-6xl
@@ -25,20 +27,23 @@ const value = defineModel({ type: Boolean, default: false });
       text-color
       section-bg-color
       class="table:max-w-6xl overflow-auto m-auto">
-      <div flex
+      <div
+flex
         relative
         borde-color
         text-color
         justify-end
         section-bg-color>
-        <div text-xl
-          @click="value = !value"
+        <div
+text-xl
           i-carbon-close-large
-          hover:text-color></div>
+          hover:text-color
+          @click="value = !value"/>
       </div>
 
       <div>
-        <h1 font-bold
+        <h1
+font-bold
           text-4xl
           text-center
           m-2
@@ -46,12 +51,13 @@ const value = defineModel({ type: Boolean, default: false });
           class="font-ubuntu">
           PAGE IS UNDER CONSTRUCTION.
         </h1>
-        <img src="~/assets/img/under-construction.jpeg"
+        <img
+src="~/assets/img/under-construction.jpeg"
           alt="under construction"
           rounded-lg
           m-auto
           p-4
-          class="laptop:w-96 laptop:h-full max-w-86" />
+          class="laptop:w-96 laptop:h-full max-w-86" >
       </div>
     </div>
   </div>
