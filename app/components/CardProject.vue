@@ -24,7 +24,7 @@ defineProps<Props>();
       </span>
     </div>
     <div class="mt-4 flex items-center gap-3">
-      <a :href="project.github" target="_blank" rel="noopener noreferrer"
+      <a :href="`https://github.com/crunux/${project.github}`" target="_blank" rel="noopener noreferrer"
         class="flex items-center gap-1.5 text-xs font-medium text-muted-foreground transition-colors hover:text-primary">
         <Icon name="lucide:github" class="h-3.5 w-3.5" />
         Code
