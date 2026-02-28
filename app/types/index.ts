@@ -1,5 +1,7 @@
 export interface Posts {
-    createdAt: string;
+    createdAt: string | Date;
+    publishedAt: string | Date;
+    updatedAt?: string | Date;
     id: string;
     slug: string;
     tittle: string;
@@ -18,7 +20,9 @@ export interface Post {
     excerpt: string;
     readTime: string;
     tags: string[];
-    createdAt: string;
+    createdAt: string | Date;
+    publishedAt: string | Date;
+    updatedAt?: string | Date;
     createdBy: CreatedBy
 
 }
@@ -53,10 +57,10 @@ export interface Project {
     id: string;
     title: string;
     description: string;
-    image: Image;
+    image?: Image;
     github: string;
     preview: string;
-    techs: Tech[];
+    techs?: Tech[];
     tags: string[];
 }
 export interface SendEmail {
@@ -72,7 +76,8 @@ export interface Hero{
     name: string;
     occupation: string;
     avatar: {url: string};
-    createdAt: string;
+    createdAt: string | Date;
+    publishedAt: string | Date;
     cv:{url:string}
 }
 
