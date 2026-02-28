@@ -13,13 +13,13 @@ withDefaults(defineProps<Props>(), {
 });
 </script>
 <template>
-  <div flex="~ col" justify-start items-start>
+  <div flex="~ col" justify-start items-start gap-2>
     <label v-if="label || !placeholder" for="name" class="text-sm font-nunito text-muted-foreground">
       {{ label }}
     </label>
-    <textarea class="w-full text-base bg-secondary focus:ring-2 ring-inset focus:ring-primary outline-none"
-      v-model="input" border="rounded-md" :name="name" :id="name" :placeholder="placeholder" cols="30" rows="8"
-      p2></textarea>
+    <textarea :id="name" v-model="input"
+      class="w-full text-base bg-secondary focus:ring-2 ring-inset focus:ring-primary outline-ring outline-dotted outline-1"
+      border="rounded-md" :name="name" :placeholder="placeholder" cols="30" rows="8" p2 />
   </div>
 </template>
 <style scoped></style>
