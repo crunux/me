@@ -9,25 +9,12 @@
   const projectsQuery = gql`
 			query getProjects($locale: [Locale!]!) {
 				projects(locales: $locale, orderBy: publishedAt_DESC, first: 2) {
-					github
 					id
-					image {
-						url(
-							transformation: {
-								image: { resize: { height: 400, width: 500, fit: clip } }
-							}
-						)
-					}
-					title
-					preview
-					description
-					techs {
-						url(
-							transformation: {
-								image: { resize: { height: 200, width: 200, fit: clip } }
-							}
-						)
-					}
+          title
+          github
+          preview
+          description
+          tags
 				}
 			}
 		`;
@@ -53,7 +40,7 @@
 				</div>
 				<div>
 					<div v-if="projectsData?.projects" class="grid gap-4 md:grid-cols-2">
-						<CardProject v-for="project in projectsData?.projects" :key="project.tittle" :project="project" />
+						<CardProject v-for="project in projectsData?.projects" :key="project.title" :project="project" />
 					</div>
 					<div class="text-center mt-10">
 						<NuxtLink to="/projects"
