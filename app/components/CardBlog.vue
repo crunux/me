@@ -17,7 +17,7 @@
             <span>{{ post.readTime }}</span>
         </div>
         <h3 class="mt-2 text-lg font-semibold text-foreground transition-colors group-hover:text-primary">
-            {{ post.tittle }}
+            {{ post.title }}
         </h3>
         <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
             {{ post.excerpt }}

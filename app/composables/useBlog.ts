@@ -18,7 +18,7 @@ export const useBlog = (locale: Ref<string>) => {
           readTime
           slug
           tags
-          tittle
+          title
           publishedAt
           updatedAt
           createdAt

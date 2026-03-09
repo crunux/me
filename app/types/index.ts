@@ -4,7 +4,7 @@ export interface Posts {
     updatedAt?: string | Date;
     id: string;
     slug: string;
-    tittle: string;
+    title: string;
     image: Image;
     excerpt: string;
     readTime: string;

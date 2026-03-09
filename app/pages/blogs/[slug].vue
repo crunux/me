@@ -21,7 +21,7 @@
 				id
 				createdAt
 				content
-				tittle
+				title
 				excerpt
 				readTime
 				tags
@@ -76,8 +76,8 @@
 	// 	],
 	// });
 	useSeoMeta({
-	  title: data.value?.post.tittle,
-	  ogTitle: `Crunux - ${data.value?.post.tittle}`,
+	  title: data.value?.post.title,
+	  ogTitle: `Crunux - ${data.value?.post.title}`,
 	  description: data.value?.post.slug,
 	  ogDescription: data.value?.post.slug,
 	  ogImage: data.value?.post.image,
@@ -102,7 +102,7 @@
 		<article>
 			<header class="mb-8">
 				<div class="mx-auto max-w-200 mb-2 pt-10 table:pt-18">
-					<img class="rounded-md" :src="data?.post.image.url" :alt="data?.post.tittle" />
+					<img class="rounded-md" :src="data?.post.image.url" :alt="data?.post.title" />
 				</div>
 				<!-- <h1 class="text-3xl font-bold tracking-tight text-foreground md:text-4xl text-pretty">
           {{ ast?.data?.title }}
@@ -119,9 +119,11 @@
 					{{ data?.post.excerpt }}
 				</p>
 				<div class="mt-8 rounded-lg px-2">
-					<MDCRenderer v-if="ast"
+					<MDCRenderer 
+						v-if="ast"
 						class="prose mt-10 laptop:w-[calc(100vw-20rem)] mx-auto max-w-none overflow-hidden laptop:prose-xl prose-a:text-sky-500 prose-a:no-underline prose-pre:overflow-auto movil:text-xs table:text-lg laptop:text-xl text-start font-nunito text-[#2d2e2e] dark:text-[#d9d9d9]"
-						:body="ast.body" :data="ast.data" />
+						:body="ast.body" 
+						:data="ast.data" />
 				</div>
 			</div>
 		</article>
