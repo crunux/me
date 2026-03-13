@@ -1,7 +1,17 @@
 <script setup lang="ts">
 	import BlobTop from './style/BlobTop.vue';
 	import BlobBottom from './style/BlobBottom.vue';
-
+	
+	type CV = {
+		hero : {
+			cv: {
+				handle: string;
+				fileName: string;
+				mimeType: string;
+				url: string;
+			}
+		}
+	}
 	const { t, tm, locale } = useI18n();
 
 	const skills = computed(() => {
@@ -24,6 +34,19 @@
 		return Object.entries(ocupationObj).map(([_, value]) => value.loc?.source);
 	});
 
+	const cvHero = gql`
+	query GetHeroCV {
+		hero(where: {id: "cm2iy2j2o052v07k2he41hrie"}) {
+			cv {
+				handle
+				fileName
+				mimeType
+				url
+			}
+		}
+	}`;
+
+	const { data } = await useAsyncQuery<CV>(cvHero);
 
 
 	const { displayedText, isTyping } = useTypingEffect({
@@ -38,6 +61,7 @@
 <template>
 	<section class="relative flex min-h-screen flex-col items-center justify-center px-6 pt-20">
 		<!-- Available badge -->
+		<!-- <ArtNetwork /> -->
 		<BlobTop />
 		<BlobBottom />
 		<div
@@ -96,11 +120,14 @@
 				class="rounded-md border border-border bg-secondary px-5 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:border-primary/50 hover:text-primary">
 				{{ locale === 'es' ? 'Contactar' : 'Contact Me'}}
 			</NuxtLink>
-			<button 
-				to="#"
+			<a 
+				:disable="!data?.hero?.cv"
+				:href="`${data?.hero?.cv?.url}?dl=true`"
+				download
+				tabIndex="0"
 				class="rounded-md bg-primary px-5 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
 				{{ locale === 'es' ? 'CV' : 'Resume'}}
-			</button>
+			</a>
 		</div>
 
 		<!-- Scroll indicator -->
