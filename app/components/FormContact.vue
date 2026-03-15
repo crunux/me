@@ -1,18 +1,28 @@
 <script setup lang="ts">
-import { useSendEmail } from "~~/app/composables/useSendEmail";
-import type { SendEmail } from "~~/app/types";
-const form: SendEmail = reactive({
-  name: "",
-  lastname: "",
-  email: "",
-  message: "",
-});
-const el = ref<HTMLElement>();
-const fields = reactive(useElementBounding(el));
+	import { useSendEmail } from "@/composables/useSendEmail";
+	import type { SendEmail } from "@/types";
 
-const sendEmail = () => {
-  useSendEmail(form);
-};
+	const form = reactive<SendEmail>({
+		name: '',
+		lastname: '',
+		email: '',
+		message: '',
+	});
+	const el = ref<HTMLElement>();
+	const fields = reactive(useElementBounding(el));
+
+	const sendEmail = async () => {
+	  const res = await useSendEmail(form);
+	  if (res === 'success') {
+	    form.name = '';
+	    form.lastname = '';
+	    form.email = '';
+	    form.message = '';
+	  }else {
+	    throw new Error('Error sending email');
+	  }
+    
+	}; 
 
 </script>
 <template>

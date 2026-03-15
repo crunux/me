@@ -1,18 +1,18 @@
 import type { SendEmail } from '~~/app/types/index';
-const config = useRuntimeConfig()
+const config = useRuntimeConfig();
 
-export const useSendEmail = async (email: SendEmail) => {
+export const useSendEmail = async (email: SendEmail): string => {
 
-    let data = {
+    const data = {
         template_params: {
             user_name: `${email.name} ${email.lastname}`,
             reply_to: `${email.email}`,
             message: `${email.message}`,
         },
-        service_id: `${config.SERVICES_ID}`,
-        template_id: `${config.TEMPLATE_ID}`,
-        user_id: `${config.USER_ID}`
-    }
+        service_id: `${config.public.servicesId}`,
+        template_id: `${config.public.templateId}`,
+        user_id: `${config.public.userId}`
+    };
     try {
         const response = await useFetch('https://api.emailjs.com/api/v1.0/email/send', {
             method: 'POST',
@@ -22,9 +22,14 @@ export const useSendEmail = async (email: SendEmail) => {
             body: JSON.stringify(data)
 
         });
-        console.log(response);
+        if(response.data.value === 'OK'){
+            return 'success';
+        }
+
+        return 'error';
     }
     catch (error) {
-        console.log(error)
+        // console.log(error);
+        return 'error';
     }
-}
+};

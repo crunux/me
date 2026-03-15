@@ -13,7 +13,7 @@ export interface Posts {
 
 export interface Post {
     id: string;
-    tittle: string;
+    title: string;
     content: string;
     slug: string;
     image: Image;

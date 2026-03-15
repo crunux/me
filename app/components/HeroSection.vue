@@ -116,9 +116,9 @@
 				{{ locale === 'es' ? 'Ver Proyectos' : 'View Projects'}}
 			</NuxtLink>
 			<NuxtLink 
-				to="mailto:crunux@proton.me"
+				to="#contact"
 				class="rounded-md border border-border bg-secondary px-5 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:border-primary/50 hover:text-primary">
-				{{ locale === 'es' ? 'Contactar' : 'Contact Me'}}
+				{{ locale === 'es' ? 'Contactame' : 'Contact Me'}}
 			</NuxtLink>
 			<a 
 				:disable="!data?.hero?.cv"

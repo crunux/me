@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { t } = useI18n();
+const { t } = useI18n();
 </script>
 <template>
   <section id="contact" class="mx-auto max-w-5xl px-6 py-24 fade-in">
