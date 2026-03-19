@@ -12,16 +12,16 @@
 			}
 		}
 	}
-	const { t, tm, locale } = useI18n();
+	const { t, tm, locale, rt } = useI18n();
 
 	const skills = computed(() => {
 		const skillsObj = tm('hero.skills') as string[];
-		return Object.entries(skillsObj).map(([_, value]) => value.loc?.source.s);
+		return Object.values(skillsObj).map((value) => rt(value));
 	});
 
 	const ocupationWork = computed(() => {
 		const ocupationObj = tm('hero.ocupation') as string[];
-		return Object.entries(ocupationObj).map(([_, value]) => value.loc?.source.s);
+		return Object.values(ocupationObj).map((value) => rt(value));
 	});
 
 
@@ -35,16 +35,16 @@
 	];
 
 	const cvHero = gql`
-		query GetHeroCV {
-			hero(where: {id: "cm2iy2j2o052v07k2he41hrie"}) {
-				cv {
-					handle
-					fileName
-					mimeType
-					url
+			query GetHeroCV {
+				hero(where: {id: "cm2iy2j2o052v07k2he41hrie"}) {
+					cv {
+						handle
+						fileName
+						mimeType
+						url
+					}
 				}
-			}
-		}`;
+			}`;
 
 	const { data } = await useAsyncQuery<CV>(cvHero);
 
@@ -68,7 +68,7 @@
 			class="relative z-10 mb-8 flex items-center gap-2 rounded-lg border border-primary/50 bg-primary/10 px-4 py-1.5">
 			<span class="h-2 w-2 rounded-full bg-emerald-400" />
 			<span class="text-xs font-medium uppercase tracking-wide text-primary">
-				{{ t('hero.available ') }}
+				{{ t('hero.available') }}
 			</span>
 		</div>
 

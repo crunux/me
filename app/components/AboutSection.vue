@@ -1,6 +1,6 @@
 <script setup lang="ts">
 
-	const { t, tm } = useI18n();
+	const { t, tm, rt } = useI18n();
 
 	type Experience = {
 		period: string;
@@ -11,9 +11,15 @@
 	}
 
 	const items = computed(() => {
-		const featuresObj = tm('about.experience.items') as Array<Experience>;
-		return Object.entries(featuresObj).map(([_, value]) => ({ period: value.period?.loc?.source.s, title: value.title?.loc?.source.s, company: value.company?.loc?.source.s, description: value.description?.loc?.source.s, tags: value.tags.map((tag) => tag.loc?.source.s) }));
-	});
+    const featuresObj = tm('about.experience.items') as Experience[];
+    return Object.values(featuresObj).map((value) => ({
+        period: rt(value.period),
+        title: rt(value.title),
+        company: rt(value.company),
+        description: rt(value.description),
+        tags: Object.values(value.tags).map((tag) => rt(tag)),
+    }));
+});
 
 </script>
 <template>
