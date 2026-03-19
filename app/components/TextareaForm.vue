@@ -1,25 +1,25 @@
 <script setup lang="ts">
-interface Props {
-  name: string;
-  type?: string;
-  label?: string;
-  placeholder?: string;
-}
+  interface Props {
+    name: string;
+    type?: string;
+    label?: string;
+    placeholder?: string;
+  }
 
-const input = defineModel<string | number>();
+  const input = defineModel<string | number>();
 
-withDefaults(defineProps<Props>(), {
-  type: "text",
-});
+  withDefaults(defineProps<Props>(), {
+    type: 'text',
+  });
 </script>
 <template>
-  <div flex="~ col" justify-start items-start gap-2>
+  <div class="max-w-100 flex flex-col justify-start items-start gap-2  py-2 my-2">
     <label v-if="label || !placeholder" for="name" class="text-sm font-nunito text-muted-foreground">
       {{ label }}
     </label>
     <textarea :id="name" v-model="input"
-      class="w-full text-base bg-secondary focus:ring-2 ring-inset focus:ring-primary outline-ring outline-dotted outline-1"
-      border="rounded-md" :name="name" :placeholder="placeholder" cols="30" rows="8" p2 />
+      class="w-full text-base bg-secondary focus:ring-2 ring-inset focus:ring-primary outline-ring outline-dotted outline-1 rounded-md p-2"
+      :name="name" :placeholder="placeholder" cols="30" rows="8" />
   </div>
 </template>
 <style scoped></style>

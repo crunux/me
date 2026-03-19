@@ -1,6 +1,7 @@
 <script setup lang="ts">
 	import BlobTop from './style/BlobTop.vue';
 	import BlobBottom from './style/BlobBottom.vue';
+	import { mapTranslationItems } from '~/shared/helpers/translateMapper';
 	
 	type CV = {
 		hero : {
@@ -14,9 +15,9 @@
 	}
 	const { t, tm, locale } = useI18n();
 
-	const skills = computed(() => {
-		const skillsObj = tm('hero.skills') as string[];
-		return Object.entries(skillsObj).map(([_, value]) => value.loc?.source);
+	const hero = computed(() => {
+		const raw = tm('hero') as Record<string, unknown>;
+		return mapTranslationItems([raw]);
 	});
 
 
@@ -28,11 +29,6 @@
 		{ to: 'mailto:hello@joancruz.dev', label: 'Email', icon: 'lucide:mail' },
 		{ label: 'Bluesky', to: 'https://bsky.app/profile/crunux.bsky.social', icon: 'i-carbon-logo-bluesky' },
 	];
-
-	const ocupationWork = computed(() => {
-		const ocupationObj = tm('hero.ocupation') as string[];
-		return Object.entries(ocupationObj).map(([_, value]) => value.loc?.source);
-	});
 
 	const cvHero = gql`
 	query GetHeroCV {
@@ -50,7 +46,7 @@
 
 
 	const { displayedText, isTyping } = useTypingEffect({
-		text: ocupationWork.value,
+		text: hero.value[0].ocupation as string,
 		speed: 100,
 		delay: 2000,
 		loop: true,
@@ -88,7 +84,8 @@
 		<!-- Skills -->
 		<div class="relative z-10 mt-8 flex max-w-md flex-wrap items-center justify-center gap-2">
 			<span 
-			v-for="skill in skills" :key="skill"
+				v-for="skill in hero[0].skills" 
+				:key="`skill-${skill}`"
 				class="rounded-md border border-border bg-secondary px-3 py-1 text-xs font-medium text-secondary-foreground transition-colors hover:border-primary/50 hover:text-primary">
 				{{ skill }}
 			</span>

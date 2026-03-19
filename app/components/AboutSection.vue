@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { mapTranslationItems } from '~/shared/helpers/translateMapper';
+
 	const { t, tm } = useI18n();
 
 	type Experience = {
@@ -10,9 +12,13 @@
 	}
 
 	const items = computed(() => {
-		const featuresObj = tm('about.experience.items') as Array<Experience>;
-		return Object.entries(featuresObj).map(([_, value]) => ({ period: value.period?.loc?.source, title: value.title?.loc?.source, company: value.company?.loc?.source, description: value.description?.loc?.source, tags: value.tags.map((tag) => tag.loc?.source) }));
+		const raw = tm('about.experience.items') as Array<Experience>;
+		return mapTranslationItems(raw);
 	});
+	// const items = computed(() => {
+	// 	const featuresObj = tm('about.experience.items') as Array<Experience>;
+	// 	return Object.entries(featuresObj).map(([_, value]) => ({ period: value.period?.loc?.source, title: value.title?.loc?.source, company: value.company?.loc?.source, description: value.description?.loc?.source, tags: value.tags.map((tag) => tag.loc?.source) }));
+	// });
 
 </script>
 <template>
@@ -36,11 +42,8 @@
 				<h2 class="text-sm font-semibold uppercase tracking-widest text-primary">
 					{{ t('about.experience.title') }}
 				</h2>
-				<div class="mt-4 flex flex-col gap-6">
-					<ExperienceItem 
-						v-for="(experience, idx) in items" 
-						:key="idx" 
-						:period="experience.period"
+				<div class="mt-4 flex flex-col gap-6 fade-in-left">
+					<ExperienceItem v-for="(experience, idx) in items" :key="idx" :period="experience.period"
 						:title="experience.title" :company="experience.company" :description="experience.description"
 						:tags="experience.tags" />
 				</div>

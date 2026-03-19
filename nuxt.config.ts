@@ -2,13 +2,12 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxtjs/tailwindcss',
     '@vueuse/nuxt',
     '@nuxtjs/i18n',
     '@nuxtjs/color-mode',
     '@nuxt/eslint',
     '@nuxtjs/apollo',
-    '@unocss/nuxt',
+    '@nuxtjs/tailwindcss',
     'nuxt-icon',
     '@nuxt/image',
     '@vee-validate/nuxt',
@@ -38,13 +37,20 @@ export default defineNuxtConfig({
   features: {
     inlineStyles: false,
   },
+  tailwindcss: {
+    configPath: './tailwind.config.ts',
+    exposeConfig: false,
+  },
 
   mdc: {
     highlight: {
       theme: 'github-dark',
-      langs: ['js', 'ts', 'html', 'css', 'json', 'bash', 'shell', 'yaml', 'xml', 'markdown', 'md', 'vue', 'nginx', 'graphql', 'sql', 'dockerfile', 'python', 'py', 'sh', 'scss', 'mdc', 'yml', 'go', 'rust', 'rs', 'jsx', 'tsx', 'angular-ts', 'angular-html', 'astro', 'c++'],
-      wrapperStyle: true
+      langs: ['js', 'ts', 'html', 'css', 'json', 'bash', 'shell', 'yaml', 'xml', 'markdown', 'md', 'mdx', 'vue', 'nginx', 'graphql', 'sql', 'dockerfile', 'python', 'py', 'sh', 'scss', 'mdc', 'yml', 'go', 'rust', 'rs', 'jsx', 'tsx', 'angular-ts', 'angular-html', 'astro', 'c++'],
+      wrapperStyle: true,
     },
+    components: {
+      prose: true
+    }
   },
 
   css: ['~/assets/css/main.css', '~/assets/css/tailwind.css'],
