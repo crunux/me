@@ -21,10 +21,6 @@
   	locale: [locale.value],
 	});
 
-	console.log('data:', data.value);
-	console.log('error:', error.value);
-
-
 </script>
 <template>
 	<section class="mx-auto w-full max-w-5xl px-6 py-24">
