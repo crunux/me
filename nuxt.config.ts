@@ -14,7 +14,25 @@ export default defineNuxtConfig({
     '@nuxtjs/mdc',
   ],
   srcDir: 'app/',
-  ssr: false,
+  ssr: true,
+  nitro:{
+    preset: 'netlify',
+    prerender: {
+      routes: ['/blogs']
+    }
+  },
+
+  routeRules: {
+    '/': {
+      prerender: true
+    },
+    '/blogs/**': {
+      prerender: true
+    },
+    '/projects': {
+      prerender: true
+    }
+  },
 
   i18n: {
     strategy: 'no_prefix',
@@ -79,10 +97,6 @@ export default defineNuxtConfig({
     clients: {
       default: {
         httpEndpoint: import.meta.env.HYGRAPH_API,
-        // tokenName: 'cross-hygraph',
-        // tokenType: 'Bearer',
-        // authHeader: 'Authorization',
-        // tokenStorage: 'cookie'
       }
     },
   },

@@ -1,74 +1,75 @@
 <script setup lang="ts">
-import { parseMarkdown } from '@nuxtjs/mdc/runtime';
-import { timeSince } from '~/shared/helpers/time-since';
-import type { Post } from '~/types';
+	import { parseMarkdown } from '@nuxtjs/mdc/runtime';
+	import { timeSince } from '~/shared/helpers/time-since';
+	import type { Post } from '~/types';
 
 
-type Data = {
-	post: Post;
-};
+	type Data = {
+		post: Post;
+	};
 
-const route = useRoute();
-const router = useRouter();
-const { locale } = useI18n();
-const slug = route.params.slug;
+	const route = useRoute();
+	const router = useRouter();
+	const { locale } = useI18n();
+	const slug = route.params.slug;
 
 
 
-const query = gql`
-				query getPost($locale: [Locale!]!, $slug: String!) {
-					post(locales: $locale, where: { slug: $slug }) {
-						id
-						createdAt
-						content
-						title
-						excerpt
-						readTime
-						tags
-						image {
-							url(transformation: { document: { output: { format: png } } })
-						}
-						createdBy {
-							name
-							picture
+	const query = gql`
+					query getPost($locale: [Locale!]!, $slug: String!) {
+						post(locales: $locale, where: { slug: $slug }) {
 							id
+							createdAt
+							content
+							title
+							excerpt
+							readTime
+							tags
+							image {
+								url(transformation: { document: { output: { format: png } } })
+							}
+							createdBy {
+								name
+								picture
+								id
+							}
 						}
 					}
-				}
-			`;
+				`;
 
-const { data, error } = await useAsyncQuery<Data>(query, {
-	locale: [locale.value],
-	slug: slug,
-});
-
-if (data.value?.post === null) {
-	throw createError({
-		statusCode: 404,
-		message: 'Page not found',
-		fatal: true,
+	const { data, error } = await useAsyncQuery<Data>(query, {
+		locale: [locale.value],
+		slug: slug,
 	});
-}
 
-if (error.value) {
-	router.push({ name: 'blogs' });
-}
+	if (data.value?.post === null) {
+		throw createError({
+			statusCode: 404,
+			message: 'Page not found',
+			fatal: true,
+		});
+	}
 
-useSeoMeta({
-	title: data.value?.post.title,
-	ogTitle: `Crunux - ${data.value?.post.title}`,
-	description: data.value?.post.slug,
-	ogDescription: data.value?.post.slug,
-	ogImage: data.value?.post.image,
-});
+	if (error.value) {
+		router.push({ name: 'blogs' });
+	}
 
-const { data: ast } = await useAsyncData('markdown', () =>
-	parseMarkdown(data.value?.post.content ?? ''),
-);
+	useSeoMeta({
+		title: data.value?.post.title,
+		description: data.value?.post.excerpt,
+		ogTitle: `${data.value?.post.title}`,
+		ogDescription: data.value?.post.excerpt,
+		ogImage: data.value?.post.image,
+		ogUrl: `https://crunux.me/blogs/${slug}`
+	});
 
-definePageMeta({
-	layout: 'custom',
-});
+	const { data: ast } = await useAsyncData('markdown', () =>
+		parseMarkdown(data.value?.post.content ?? ''),
+	);
+
+	definePageMeta({
+		layout: 'custom',
+	});
 </script>
 <template>
 	<div class="max-w-[calc(100vw-2rem)] ml-0 overflow-x-hidden">

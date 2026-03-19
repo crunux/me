@@ -1,13 +1,30 @@
 <script setup lang="ts">
+  import type { Posts } from '~/types';
+
 
   useSeoMeta({ title: 'Blog' });
   useScrollAnimation();
 
   const { locale } = useI18n();
-  const { posts, loading, error, setupAutoRefetch } = useBlog(locale);
 
-  // Setup auto-refetch cuando cambie el locale
-  setupAutoRefetch();
+  const postsQuery = gql`
+			query GetPosts($locale: [Locale!]!) {
+					posts(locales: $locale, orderBy: publishedAt_DESC) {
+							id
+							title
+							publishedAt
+							readTime
+							excerpt
+							slug
+							tags
+					}
+			}
+	`;
+	
+	const { data, error, loading } = await useAsyncQuery<{ posts: Posts[] }>(postsQuery, {
+  	locale: [locale.value],
+	});
+
 
   definePageMeta({
     layout: 'custom',
@@ -38,7 +55,7 @@
       <p class="text-primary font-nunito opacity-50">No posts available yet.</p>
     </div>
     <!-- Blog Posts Grid -->
-    <BlogList v-else :posts="posts" />
+    <BlogList v-else :posts="data?.posts || []" />
     <!-- Empty state -->
   </div>
 </template>

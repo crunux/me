@@ -1,7 +1,7 @@
 import type { SendEmail } from '~~/app/types/index';
-const config = useRuntimeConfig();
 
-export const useSendEmail = async (email: SendEmail): string => {
+export const useSendEmail = async (email: SendEmail): Promise<string> => {
+    const config = useRuntimeConfig();
 
     const data = {
         template_params: {
