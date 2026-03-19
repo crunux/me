@@ -16,12 +16,12 @@
 
 	const skills = computed(() => {
 		const skillsObj = tm('hero.skills') as string[];
-		return Object.entries(skillsObj).map(([_, value]) => value.loc?.source);
+		return Object.entries(skillsObj).map(([_, value]) => value.loc?.source.s);
 	});
 
 	const ocupationWork = computed(() => {
 		const ocupationObj = tm('hero.ocupation') as string[];
-		return Object.entries(ocupationObj).map(([_, value]) => value.loc?.source);
+		return Object.entries(ocupationObj).map(([_, value]) => value.loc?.source.s);
 	});
 
 

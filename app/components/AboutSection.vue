@@ -12,7 +12,7 @@
 
 	const items = computed(() => {
 		const featuresObj = tm('about.experience.items') as Array<Experience>;
-		return Object.entries(featuresObj).map(([_, value]) => ({ period: value.period?.loc?.source, title: value.title?.loc?.source, company: value.company?.loc?.source, description: value.description?.loc?.source, tags: value.tags.map((tag) => tag.loc?.source) }));
+		return Object.entries(featuresObj).map(([_, value]) => ({ period: value.period?.loc?.source.s, title: value.title?.loc?.source.s, company: value.company?.loc?.source.s, description: value.description?.loc?.source.s, tags: value.tags.map((tag) => tag.loc?.source.s) }));
 	});
 
 </script>
