@@ -15,22 +15,19 @@ export default defineNuxtConfig({
   ],
   srcDir: 'app/',
   ssr: true,
-  nitro:{
-    preset: 'netlify',
-    prerender: {
-      routes: ['/blogs']
-    }
-  },
+  // nitro:{
+  //   preset: 'netlify',
+  // },
 
   routeRules: {
     '/': {
-      prerender: true
+      isr: true
     },
     '/blogs/**': {
-      prerender: true
+      isr: 3600
     },
     '/projects': {
-      prerender: true
+      isr: 5400
     }
   },
 

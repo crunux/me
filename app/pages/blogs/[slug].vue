@@ -60,7 +60,8 @@
 		ogTitle: `${data.value?.post.title}`,
 		ogDescription: data.value?.post.excerpt,
 		ogImage: data.value?.post.image,
-		ogUrl: `https://crunux.me/blogs/${slug}`
+		ogUrl: `https://crunux.me/blogs/${slug}`,
+		twitterCard: 'summary_large_image'
 	});
 
 	const { data: ast } = await useAsyncData('markdown', () =>

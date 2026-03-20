@@ -1,23 +1,21 @@
 <script setup lang="ts">
-	import type { Route } from "~~/app/types";
-
 
 	useSeoMeta({
-		description: "Portfolio of Joan Cruz",
-		ogTitle: "Joan Cruz - Crunux",
-		ogDescription: "Joan Cruz Developer, manejando diferentes tecnologias, aplicando codigo de calidad.",
-		ogImage: "https://pbs.twimg.com/profile_images/1421116782069403649/9TRcKV2t_400x400.jpg",
-		ogUrl: "crunux.me",
-		twitterTitle: "Joan Cruz - Crunux",
-		twitterDescription: "Frontend Developer",
-		twitterImage: "https://pbs.twimg.com/profile_images/1421116782069403649/9TRcKV2t_400x400.jpg",
-		twitterCard: "summary",
+		description: 'Portfolio of Joan Cruz',
+		ogTitle: 'Joan Cruz',
+		ogDescription: 'Fullstack developer passionate about clean architecture, engineering principles, and developer experience with a focus on building high-performance web applications, mobile applications, web pages, APIs, microservices, and scalable systems. I work across the stack but my heart lives in the client side.',
+		ogImage: 'https://crunux.me/img/og-cover.png',
+		ogUrl: 'crunux.me',
+		twitterTitle: 'Joan Cruz - Crunux',
+		twitterDescription: 'Fullstack developer passionate about clean architecture, engineering principles, and developer experience with a focus on building high-performance web applications, mobile applications, web pages, APIs, microservices, and scalable systems. I work across the stack but my heart lives in the client side.',
+		twitterImage: 'https://crunux.me/img/og-cover.png',
+		twitterCard: 'summary',
 	});
 
 	useHead({
-		titleTemplate: "%s - Crunux",
-		htmlAttrs: { lang: "en" },
-		link: [{ rel: "icon", type: "image/ico", href: "/favicon.ico" }],
+		titleTemplate: '%s - Crunux',
+		htmlAttrs: { lang: 'en' },
+		link: [{ rel: 'icon', type: 'image/ico', href: '/favicon.ico' }],
 	});
 
 

@@ -1,6 +1,13 @@
 <script setup lang="ts">
 
-  useSeoMeta({ title: 'Projects', description: 'A collection of projects I`ve worked on, from web applications to tools and experiments.' });
+  useSeoMeta({ 
+    title: 'Projects', 
+    description: 'A collection of projects I`ve worked on, from web applications to tools and experiments.',
+    ogTitle: 'Projects', 
+    ogDescription: 'A collection of projects I`ve worked on, from web applications to tools and experiments.',
+    ogImage: '/og-image.png',
+    twitterCard: 'summary_large_image'
+  });
   useScrollAnimation();
 
   definePageMeta({

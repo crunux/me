@@ -2,7 +2,15 @@
   import type { Posts } from '~/types';
 
 
-  useSeoMeta({ title: 'Blog' });
+  useSeoMeta({
+    title: 'Blog',
+    description: 'Thoughts & Writing',
+    ogTitle: 'Blog',
+    ogDescription: 'Thoughts & Writing',
+    ogImage: '/og-image.png',
+    twitterCard: 'summary_large_image'
+  });
+  
   useScrollAnimation();
 
   const { locale } = useI18n();

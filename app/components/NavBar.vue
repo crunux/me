@@ -21,7 +21,7 @@ const navLinks = [
   <header
     class="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-md overflow-x-hidden">
     <nav class="mx-auto flex max-w-5xl items-center justify-between px-6 py-2">
-      <NuxtLink to="/" class="flex items-center gap-0 text-lg font-bold tracking-tight">
+      <NuxtLink to="/" class="flex items-center gap-0 text-lg font-bold tracking-tight" aria-label="Home - Crunux">
         <!-- <span class="text-foreground">Cru</span>
         <span class="text-primary">nux</span> -->
         <LogoCr class="text-primary" />
